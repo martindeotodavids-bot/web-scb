@@ -1,0 +1,881 @@
+index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>SCB Logística - Reingeniería y Tecnología Put-to-Light</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SCB Logística - Reingeniería de procesos logísticos y tecnologías Put-to-Light / Pick-to-Light para aumentar productividad y certeza operativa." />
+
+  <!-- Fuente Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuración básica de Tailwind (colores principales) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            navy: '#0a192f',
+            techOrange: '#ff8c00',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Suaviza el scroll entre secciones */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="font-sans bg-navy text-slate-100 antialiased">
+  <!-- Navbar fijo con transición de color al hacer scroll -->
+  <header id="navbar" class="fixed inset-x-0 top-0 z-30 transition-colors duration-300 bg-transparent">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-2">
+          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-techOrange/10 border border-techOrange/40">
+            <span class="text-techOrange font-semibold text-lg">SCB</span>
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="text-sm font-semibold tracking-wide">SCB Logística</span>
+            <span class="text-[11px] text-slate-400">Supply Chain & B2B</span>
+          </div>
+        </a>
+
+        <!-- Navegación desktop -->
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="#servicios" class="text-slate-200 hover:text-techOrange transition-colors">Servicios</a>
+          <a href="#nosotros" class="text-slate-200 hover:text-techOrange transition-colors">Nosotros</a>
+          <a href="#casos" class="text-slate-200 hover:text-techOrange transition-colors">Casos de Éxito</a>
+          <a href="#contacto" class="text-slate-200 hover:text-techOrange transition-colors">Contacto</a>
+        </nav>
+
+        <!-- CTA + menú móvil -->
+        <div class="flex items-center gap-3">
+          <a href="#contacto"
+             class="hidden sm:inline-flex items-center rounded-full bg-techOrange px-4 py-2 text-xs font-semibold uppercase tracking-wide text-navy shadow-md shadow-techOrange/30 transition hover:bg-orange-500">
+            Diagnóstico Gratuito
+          </a>
+          <button id="mobile-menu-button" class="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-600/60 text-slate-200 hover:bg-slate-800/60 transition">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menú móvil colapsable -->
+      <div id="mobile-menu" class="md:hidden hidden border-t border-slate-800/70 pb-4">
+        <nav class="flex flex-col gap-2 pt-3 text-sm">
+          <a href="#servicios" class="rounded-md px-2 py-2 text-slate-200 hover:bg-slate-800/70">Servicios</a>
+          <a href="#nosotros" class="rounded-md px-2 py-2 text-slate-200 hover:bg-slate-800/70">Nosotros</a>
+          <a href="#casos" class="rounded-md px-2 py-2 text-slate-200 hover:bg-slate-800/70">Casos de Éxito</a>
+          <a href="#contacto" class="rounded-md px-2 py-2 text-slate-200 hover:bg-slate-800/70">Contacto</a>
+          <a href="#contacto"
+             class="mt-1 inline-flex items-center justify-center rounded-full bg-techOrange px-4 py-2 text-xs font-semibold uppercase tracking-wide text-navy shadow-md shadow-techOrange/30 hover:bg-orange-500">
+            Diagnóstico Gratuito
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- HERO -->
+    <section id="hero" class="relative overflow-hidden">
+      <!-- Fondo degradado para dar profundidad -->
+      <div class="pointer-events-none absolute inset-0 opacity-70">
+        <div class="absolute -right-32 top-0 h-72 w-72 rounded-full bg-techOrange/10 blur-3xl"></div>
+        <div class="absolute left-[-6rem] bottom-[-6rem] h-80 w-80 rounded-full bg-sky-500/10 blur-3xl"></div>
+      </div>
+
+      <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-center">
+          <!-- Copy principal -->
+          <div>
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-3 py-1 text-xs text-slate-300 mb-4 shadow-sm shadow-black/40">
+              <span class="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              <span class="uppercase tracking-wide font-medium text-[11px]">
+                +30 años optimizando Supply Chain en Chile
+              </span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-slate-50">
+              Garantizamos el aumento de tu
+              <span class="text-techOrange">productividad logística</span>.
+            </h1>
+
+            <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-xl">
+              Más que consultores, somos implementadores que rediseñan y tecnifican
+              procesos logísticos, mejorando la rentabilidad y visibilidad de tu operación
+              B2B y omnicanal.
+            </p>
+
+            <!-- Bullets de confianza -->
+            <div class="mt-6 flex flex-wrap gap-4 text-sm text-slate-300">
+              <div class="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/60 px-3 py-1">
+                <i data-lucide="factory" class="h-4 w-4 text-techOrange"></i>
+                <span>Centros de distribución de alto desempeño</span>
+              </div>
+              <div class="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/60 px-3 py-1">
+                <i data-lucide="gauge" class="h-4 w-4 text-emerald-400"></i>
+                <span>Implementaciones con KPIs medibles</span>
+              </div>
+            </div>
+
+            <!-- CTA principal -->
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a href="#contacto"
+                 class="inline-flex items-center justify-center gap-2 rounded-full bg-techOrange px-6 py-3 text-sm font-semibold text-navy shadow-lg shadow-techOrange/40 transition hover:bg-orange-500 hover:-translate-y-0.5">
+                <span>Solicitar Diagnóstico Gratuito</span>
+                <i data-lucide="arrow-right" class="h-4 w-4"></i>
+              </a>
+              <p class="text-xs sm:text-sm text-slate-400 max-w-xs">
+                En menos de 30 minutos detectamos brechas de productividad y
+                oportunidades de automatización de picking.
+              </p>
+            </div>
+          </div>
+
+          <!-- Panel lateral: métricas visuales -->
+          <aside class="relative rounded-2xl border border-slate-800/80 bg-slate-900/70 p-5 sm:p-6 shadow-xl shadow-black/40 backdrop-blur">
+            <!-- Cinta superior -->
+            <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs text-emerald-300">
+              <i data-lucide="sparkles" class="h-4 w-4"></i>
+              <span>Resultados típicos en 6-12 meses</span>
+            </div>
+
+            <!-- Métricas -->
+            <div class="grid grid-cols-2 gap-4 text-sm items-stretch">
+              <div class="rounded-xl bg-slate-900/80 p-4 border border-slate-800/90 hover:border-techOrange/50 hover:-translate-y-1 transition-all h-full flex flex-col">
+                <p class="text-[11px] uppercase tracking-wide text-slate-400 flex items-end min-h-[2.5rem]">Aumento de productividad</p>
+                <p class="mt-1 text-2xl font-semibold text-emerald-400">+40-60%</p>
+                <p class="mt-2 text-xs text-slate-400">En operaciones de picking y consolidación.</p>
+              </div>
+              <div class="rounded-xl bg-slate-900/80 p-4 border border-slate-800/90 hover:border-techOrange/50 hover:-translate-y-1 transition-all h-full flex flex-col">
+                <p class="text-[11px] uppercase tracking-wide text-slate-400 flex items-end min-h-[2.5rem]">Certeza operativa</p>
+                <p class="mt-1 text-2xl font-semibold text-emerald-400">99,9%</p>
+                <p class="mt-2 text-xs text-slate-400">Reducción drástica de errores y reprocesos.</p>
+              </div>
+              <div class="col-span-2 rounded-xl bg-gradient-to-r from-slate-900 to-slate-900/40 p-4 border border-slate-800/90 flex items-start gap-3">
+                <div class="mt-0.5">
+                  <i data-lucide="cpu" class="h-5 w-5 text-techOrange"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-slate-50">Put-to-Light & Pick-to-Light integrados</p>
+                  <p class="mt-1 text-xs text-slate-400">
+                    Diseñamos, integramos y operamos tecnologías lumínicas para
+                    garantizar velocidad, trazabilidad y ergonomía al recolector.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN REINGENIERÍA (El Qué) -->
+    <section id="servicios" class="bg-slate-950/70 border-t border-slate-900">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+        <div class="flex flex-col gap-3">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">
+              Reingeniería de Procesos
+            </h2>
+            <p class="mt-2 max-w-2xl text-sm sm:text-base text-slate-300">
+              Rediseñamos la operación de punta a punta, alineando layout, tecnología,
+              personas y KPIs para que tu centro logístico opere como un sistema orquestado.
+            </p>
+            <p class="mt-2 max-w-2xl text-xs sm:text-sm text-slate-400">
+              Enfoque consultivo, pero con bajada operativa y acompañamiento en piso.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjetas de proceso -->
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <!-- Levantamiento -->
+          <article class="group relative rounded-2xl border border-slate-800 bg-slate-950/60 p-6 shadow-sm shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-xl hover:shadow-techOrange/20 flex flex-col h-full">
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-techOrange/10 border border-techOrange/40">
+                <i data-lucide="clipboard-list" class="h-5 w-5 text-techOrange"></i>
+              </div>
+              <span class="text-[11px] uppercase tracking-wide text-slate-400">
+                Fase 1
+              </span>
+            </div>
+            <h3 class="mt-4 text-lg font-semibold text-slate-50">Levantamiento</h3>
+            <p class="mt-2 text-sm text-slate-300">
+              Diagnóstico de procesos, layout y sistemas actuales. Identificamos
+              cuellos de botella, desperdicios de movimiento y riesgos de error.
+            </p>
+            <div class="mt-auto pt-4">
+              <ul class="space-y-1.5 text-xs text-slate-400">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400"></i>
+                  <span>Walkthrough en piso y entrevistas clave.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400"></i>
+                  <span>Mapeo de flujos de información y materiales.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Discusión -->
+          <article class="group relative rounded-2xl border border-slate-800 bg-slate-950/60 p-6 shadow-sm shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-xl hover:shadow-techOrange/20 flex flex-col h-full">
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-techOrange/10 border border-techOrange/40">
+                <i data-lucide="workflow" class="h-5 w-5 text-techOrange"></i>
+              </div>
+              <span class="text-[11px] uppercase tracking-wide text-slate-400">
+                Fase 2
+              </span>
+            </div>
+            <h3 class="mt-4 text-lg font-semibold text-slate-50">Discusión y Diseño</h3>
+            <p class="mt-2 text-sm text-slate-300">
+              Co-diseñamos el nuevo modelo operativo con tu equipo,
+              priorizando quick wins y un roadmap claro de implementación.
+            </p>
+            <div class="mt-auto pt-4">
+              <ul class="space-y-1.5 text-xs text-slate-400">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400"></i>
+                  <span>Simulación de escenarios de capacidad y SLAs.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400"></i>
+                  <span>Definición de layout, rutas y perfiles de puesto.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Implementación -->
+          <article class="group relative rounded-2xl border border-slate-800 bg-slate-950/60 p-6 shadow-sm shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-xl hover:shadow-techOrange/20 flex flex-col h-full">
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-techOrange/10 border border-techOrange/40">
+                <i data-lucide="rocket" class="h-5 w-5 text-techOrange"></i>
+              </div>
+              <span class="text-[11px] uppercase tracking-wide text-slate-400">
+                Fase 3
+              </span>
+            </div>
+            <h3 class="mt-4 text-lg font-semibold text-slate-50">Implementación</h3>
+            <p class="mt-2 text-sm text-slate-300">
+              Acompañamos la puesta en marcha en terreno, con entrenamiento,
+              estabilización y monitoreo de KPIs para asegurar la captura del valor.
+            </p>
+            <div class="mt-auto pt-4">
+              <ul class="space-y-1.5 text-xs text-slate-400">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400"></i>
+                  <span>Capacitación de equipos y manuales clave.</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400"></i>
+                  <span>Soporte on-site durante el período crítico.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN TECNOLOGÍAS (El Cómo) -->
+    <section id="nosotros" class="bg-slate-950/40 border-t border-slate-900">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+        <div class="max-w-3xl">
+          <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">
+            Tecnologías Put-to-Light &amp; Pick-to-Light
+          </h2>
+          <p class="mt-2 text-sm sm:text-base text-slate-300">
+            Diseñamos sistemas lumínicos a la medida de tu operación, integrados a WMS/ERP,
+            para aumentar velocidad, reducir errores y mejorar la ergonomía del recolector.
+          </p>
+        </div>
+
+        <!-- Dos columnas -->
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <!-- Put-to-Light -->
+          <article class="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 sm:p-7 shadow-lg shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/80 hover:shadow-techOrange/20">
+            <div class="absolute inset-0 pointer-events-none">
+              <div class="absolute right-[-4rem] top-[-4rem] h-40 w-40 rounded-full bg-techOrange/10 blur-3xl"></div>
+            </div>
+            <div class="relative">
+              <div class="inline-flex items-center gap-2 rounded-full bg-sky-500/10 px-3 py-1 text-[11px] uppercase tracking-wide text-sky-300">
+                <i data-lucide="boxes" class="h-3.5 w-3.5"></i>
+                <span>Tecnología Put-to-Light</span>
+              </div>
+              <h3 class="mt-4 text-xl font-semibold text-slate-50">
+                Consolidación ágil por destino
+              </h3>
+              <p class="mt-2 text-sm text-slate-300">
+                Ideal para operaciones con alto número de tiendas o clientes B2B.
+                La luz indica dónde depositar cada unidad, eliminando la necesidad de
+                memorizar códigos o revisar planillas.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-sm text-slate-200">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
+                  <span><strong>+40-60% de productividad</strong> en consolidación de pedidos.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
+                  <span><strong>99,9% de certeza</strong> en la asignación al destino correcto.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
+                  <span>Excelente para omnicanalidad: e-commerce, retail físico y mayoristas.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Pick-to-Light -->
+          <article class="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/70 p-6 sm:p-7 shadow-lg shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/80 hover:shadow-techOrange/20">
+            <div class="absolute inset-0 pointer-events-none">
+              <div class="absolute left-[-4rem] bottom-[-4rem] h-40 w-40 rounded-full bg-emerald-500/10 blur-3xl"></div>
+            </div>
+            <div class="relative">
+              <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] uppercase tracking-wide text-emerald-300">
+                <i data-lucide="flashlight" class="h-3.5 w-3.5"></i>
+                <span>Tecnología Pick-to-Light</span>
+              </div>
+              <h3 class="mt-4 text-xl font-semibold text-slate-50">
+                Picking dirigido por luz
+              </h3>
+              <p class="mt-2 text-sm text-slate-300">
+                Perfecto para zonas de alta rotación. La luz guía al recolector a la
+                ubicación correcta, con cantidad a tomar, minimizando recorridos y errores.
+              </p>
+
+              <ul class="mt-4 space-y-2 text-sm text-slate-200">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
+                  <span><strong>40-60% de mejora</strong> en líneas por hora por recolector.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
+                  <span><strong>99,9% de certeza</strong> en la ubicación y cantidad recolectada.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
+                  <span>Curva de aprendizaje muy baja; operadores productivos en días.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULADORA PTL (Lead Magnet) -->
+    <section class="bg-slate-100 text-slate-900">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+        <div class="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
+          <!-- Texto explicativo -->
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-semibold text-navy">
+              ¿Cuánto más eficiente podrías ser con PTL?
+            </h2>
+            <p class="mt-3 text-sm sm:text-base text-slate-700">
+              Proyecta rápidamente el potencial de mejora en tu operación con un sistema
+              Put-to-Light bien diseñado. Completa los datos de tu operación diaria y
+              te ayudamos a dimensionar el impacto.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li class="flex items-start gap-2">
+                <i data-lucide="sparkles" class="mt-0.5 h-4 w-4 text-emerald-500"></i>
+                <span>Escenarios personalizados según tu mix de canales y SKUs.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="sparkles" class="mt-0.5 h-4 w-4 text-emerald-500"></i>
+                <span>Enfoque financiero: productividad, errores y costo por pedido.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Formulario calculadora -->
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 shadow-md shadow-slate-300/40 p-6 sm:p-7">
+            <form class="space-y-4">
+              <!-- Primera fila -->
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="pedidos" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>Pedidos diarios aproximados</span>
+                    <span class="text-slate-400">unid/día</span>
+                  </label>
+                  <input id="pedidos" type="number" inputmode="numeric"
+                         class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                         placeholder="Ej: 1.200" />
+                </div>
+                <div>
+                  <label for="lineas" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>Líneas promedio por pedido</span>
+                    <span class="text-slate-400">SKU/pedido</span>
+                  </label>
+                  <input id="lineas" type="number" inputmode="numeric"
+                         class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                         placeholder="Ej: 5" />
+                </div>
+              </div>
+
+              <!-- Segunda fila -->
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="recolectores" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>Recolectores actuales</span>
+                    <span class="text-slate-400">personas</span>
+                  </label>
+                  <input id="recolectores" type="number" inputmode="numeric"
+                         class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                         placeholder="Ej: 15" />
+                </div>
+                <div>
+                  <label for="horas" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>Horas efectivas de operación</span>
+                    <span class="text-slate-400">horas/día</span>
+                  </label>
+                  <input id="horas" type="number" inputmode="numeric"
+                         class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                         placeholder="Ej: 10" />
+                </div>
+              </div>
+
+              <!-- Tercera fila -->
+              <div>
+                <label for="skus" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                  <span>SKUs activos en la zona</span>
+                  <span class="text-slate-400">SKU</span>
+                </label>
+                <input id="skus" type="number" inputmode="numeric"
+                       class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                       placeholder="Ej: 2.500" />
+              </div>
+
+              <!-- CTA calculadora -->
+              <button type="button"
+                      class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-techOrange px-4 py-2.5 text-sm font-semibold text-navy shadow-md shadow-techOrange/40 transition hover:bg-orange-500">
+                <span>Calcular Eficiencia</span>
+                <i data-lucide="calculator" class="h-4 w-4"></i>
+              </button>
+              <p class="text-[11px] text-slate-500">
+                Esta calculadora es referencial. Para un modelo preciso, agenda un diagnóstico
+                gratuito con nuestro equipo.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPO + SOCIAL PROOF -->
+    <section class="bg-slate-950/60 border-t border-slate-900">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">
+              Equipo que viene de la operación
+            </h2>
+            <p class="mt-2 max-w-2xl text-sm sm:text-base text-slate-300">
+              Socios con experiencia directa diseñando, operando y transformando centros de
+              distribución en Chile y Latinoamérica.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjetas de equipo -->
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <!-- Miguel -->
+          <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20">
+            <div class="flex items-center gap-3">
+              <div class="h-12 w-12 rounded-full overflow-hidden border border-techOrange/40 bg-slate-900/80">
+                <img
+                  src="fotos/Miguel%20De%20Oto.png"
+                  alt="Foto de Miguel De Oto"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-50">Miguel De Oto</h3>
+                <p class="text-xs text-slate-400">Socio Director · Diseño de Centros</p>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-slate-300">
+              Especialista en diseño integral de centros de distribución y
+              reingeniería de procesos de almacenaje, picking y consolidación.
+            </p>
+            <p class="mt-3 text-xs text-slate-400">
+              Ha liderado proyectos para empresas de retail, consumo masivo y B2B
+              industriales, con foco en resultados medibles.
+            </p>
+          </article>
+
+          <!-- Juan Carlos -->
+          <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20">
+            <div class="flex items-center gap-3">
+              <div class="h-12 w-12 rounded-full overflow-hidden border border-techOrange/40 bg-slate-900/80">
+                <img
+                  src="fotos/Juan%20Carlos%20Saez.png"
+                  alt="Foto de Juan Carlos Saez"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-50">Juan Carlos Saez</h3>
+                <p class="text-xs text-slate-400">Socio · Operaciones & KPIs</p>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-slate-300">
+              Experto en gestión de operaciones, productividad y modelos de
+              gobernanza de indicadores para logística de alto desempeño.
+            </p>
+            <p class="mt-3 text-xs text-slate-400">
+              Acompaña en terreno la implementación y estabilización de nuevas
+              formas de trabajo con supervisores y jefaturas.
+            </p>
+          </article>
+
+          <!-- Ronald -->
+          <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-techOrange/15 border border-techOrange/40">
+                <i data-lucide="user-cog" class="h-5 w-5 text-techOrange"></i>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-slate-50">Ronald Martinez</h3>
+                <p class="text-xs text-slate-400">Socio · Tecnología & Integración</p>
+              </div>
+            </div>
+            <p class="mt-3 text-sm text-slate-300">
+              Responsable de la arquitectura tecnológica, integración con WMS/ERP
+              y despliegue de soluciones Put-to-Light y Pick-to-Light.
+            </p>
+            <p class="mt-3 text-xs text-slate-400">
+              Combina experiencia técnica con conocimiento profundo de operación
+              en piso para soluciones realmente utilizables.
+            </p>
+          </article>
+        </div>
+
+        <!-- Social proof -->
+        <<div class="mt-10 grid gap-4 rounded-2xl border border-slate-800 bg-slate-950/80 p-6 sm:grid-cols-3">
+            <div class="flex flex-col items-center justify-center text-center">
+              <p class="text-2xl sm:text-3xl font-semibold text-slate-50">30+</p>
+              <p class="mt-1 text-xs uppercase tracking-wide text-slate-400">Años de experiencia combinada</p>
+            </div>
+            
+            <div class="flex flex-col items-center justify-center text-center sm:border-x border-slate-800/80">
+              <p class="text-2xl sm:text-3xl font-semibold text-slate-50">100+</p>
+              <p class="mt-1 text-xs uppercase tracking-wide text-slate-400">Proyectos logísticos</p>
+            </div>
+            
+            <div class="flex flex-col items-center justify-center text-center">
+              <p class="text-2xl sm:text-3xl font-semibold text-slate-50">10+</p>
+              <p class="mt-1 text-xs uppercase tracking-wide text-slate-400">Centros diseñados</p>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- CASOS DE ÉXITO -->
+    <section id="casos" class="bg-slate-950/40 border-t border-slate-900">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">
+              Casos de Éxito
+            </h2>
+            <p class="mt-2 max-w-2xl text-sm sm:text-base text-slate-300">
+              Implementaciones reales que demuestran el impacto de combinar
+              reingeniería de procesos con tecnologías Put-to-Light y Pick-to-Light.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjetas horizontales -->
+        <div class="mt-8 space-y-5">
+          <!-- Nespresso -->
+          <article class="flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-5 sm:flex-row sm:items-center shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-emerald-500/70 hover:shadow-emerald-500/20">
+            <div class="flex-1">
+              <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/80 px-3 py-1 text-[11px] text-slate-300">
+                <span class="font-semibold tracking-wide uppercase">Nespresso</span>
+                <span class="h-1 w-1 rounded-full bg-slate-600"></span>
+                <span>Retail & e-commerce</span>
+              </div>
+              <p class="mt-2 text-sm text-slate-200">
+                Rediseño del flujo de consolidación y habilitación de Put-to-Light
+                para preparación de pedidos por tienda y e-commerce.
+              </p>
+              <p class="mt-2 text-xs text-slate-400">
+                Optimización de uso de espacio, control de quiebres y reducción de
+                reprocesos en períodos de alta demanda.
+              </p>
+            </div>
+            <div class="sm:w-56 rounded-xl bg-slate-900/80 border border-emerald-500/40 px-4 py-3 text-sm text-slate-100">
+              <p class="flex items-center gap-2 text-emerald-400 font-semibold">
+                <i data-lucide="trending-up" class="h-4 w-4"></i>
+                <span>+40% Productividad</span>
+              </p>
+              <p class="mt-1 text-xs text-slate-300">
+                en consolidación de pedidos y reducción significativa de errores
+                de asignación.
+              </p>
+            </div>
+          </article>
+
+          <!-- Kayser -->
+          <article class="flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-5 sm:flex-row sm:items-center shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-emerald-500/70 hover:shadow-emerald-500/20">
+            <div class="flex-1">
+              <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/80 px-3 py-1 text-[11px] text-slate-300">
+                <span class="font-semibold tracking-wide uppercase">Kayser</span>
+                <span class="h-1 w-1 rounded-full bg-slate-600"></span>
+                <span>Retail moda</span>
+              </div>
+              <p class="mt-2 text-sm text-slate-200">
+                Implementación de Pick-to-Light en zonas de alta rotación,
+                reorganización de layout y definición de nuevas rutas de picking.
+              </p>
+              <p class="mt-2 text-xs text-slate-400">
+                Mejora de capacidad sin ampliar superficie, manteniendo servicio
+                a tiendas y canales digitales.
+              </p>
+            </div>
+            <div class="sm:w-56 rounded-xl bg-slate-900/80 border border-emerald-500/40 px-4 py-3 text-sm text-slate-100">
+              <p class="flex items-center gap-2 text-emerald-400 font-semibold">
+                <i data-lucide="gauge" class="h-4 w-4"></i>
+                <span>+50% Líneas/hora</span>
+              </p>
+              <p class="mt-1 text-xs text-slate-300">
+                por recolector en zonas intervenidas, manteniendo estándares
+                de calidad.
+              </p>
+            </div>
+          </article>
+
+          <!-- Pillin -->
+          <article class="flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-5 sm:flex-row sm:items-center shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-emerald-500/70 hover:shadow-emerald-500/20">
+            <div class="flex-1">
+              <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/80 px-3 py-1 text-[11px] text-slate-300">
+                <span class="font-semibold tracking-wide uppercase">Pillin</span>
+                <span class="h-1 w-1 rounded-full bg-slate-600"></span>
+                <span>Infantil & omnicanal</span>
+              </div>
+              <p class="mt-2 text-sm text-slate-200">
+                Reingeniería de procesos de recepción, almacenaje y despacho,
+                integrando Put-to-Light para consolidación por cliente.
+              </p>
+              <p class="mt-2 text-xs text-slate-400">
+                Mayor visibilidad de stock, disminución de devoluciones y mejora
+                en tiempos de preparación.
+              </p>
+            </div>
+            <div class="sm:w-56 rounded-xl bg-slate-900/80 border border-emerald-500/40 px-4 py-3 text-sm text-slate-100">
+              <p class="flex items-center gap-2 text-emerald-400 font-semibold">
+                <i data-lucide="shield-check" class="h-4 w-4"></i>
+                <span>99,9% Exactitud</span>
+              </p>
+              <p class="mt-1 text-xs text-slate-300">
+                en pedidos despachados, reduciendo reclamos y reprocesos en CD.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER / CONTACTO -->
+  <footer id="contacto" class="bg-navy border-t border-slate-900">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+        <!-- Información y mini social proof -->
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">
+            Agenda tu diagnóstico logístico gratuito
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-slate-300 max-w-xl">
+            Conversemos sobre tu operación actual, tus desafíos y metas. En una sesión
+            corta detectamos brechas, cuantificamos impactos y proponemos próximos pasos.
+          </p>
+
+          <div class="mt-6 space-y-3 text-sm text-slate-300">
+            <div class="flex items-center gap-3">
+              <div class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900/80 border border-slate-700">
+                <i data-lucide="mail" class="h-4 w-4 text-techOrange"></i>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wide text-slate-400">Correo</p>
+                <p class="text-sm">contacto@scblogistica.cl</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900/80 border border-slate-700">
+                <i data-lucide="phone" class="h-4 w-4 text-techOrange"></i>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wide text-slate-400">Teléfono</p>
+                <p class="text-sm">+56 9 0000 0000</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900/80 border border-slate-700">
+                <i data-lucide="map-pin" class="h-4 w-4 text-techOrange"></i>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wide text-slate-400">Ubicación</p>
+                <p class="text-sm">Santiago, Chile · Proyectos en Latam</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="rounded-2xl border border-slate-800 bg-slate-950/80 p-6 sm:p-7 shadow-xl shadow-black/40">
+          <form class="space-y-4">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="nombre" class="text-xs font-medium text-slate-200 mb-1.5 block">
+                  Nombre completo
+                </label>
+                <input id="nombre" type="text"
+                       class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                       placeholder="Ej: María Pérez" />
+              </div>
+              <div>
+                <label for="cargo" class="text-xs font-medium text-slate-200 mb-1.5 block">
+                  Cargo
+                </label>
+                <input id="cargo" type="text"
+                       class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                       placeholder="Ej: Gerente de Logística" />
+              </div>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="empresa" class="text-xs font-medium text-slate-200 mb-1.5 block">
+                  Empresa
+                </label>
+                <input id="empresa" type="text"
+                       class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                       placeholder="Ej: Empresa XYZ" />
+              </div>
+              <div>
+                <label for="telefono" class="text-xs font-medium text-slate-200 mb-1.5 block">
+                  Teléfono
+                </label>
+                <input id="telefono" type="tel"
+                       class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                       placeholder="Ej: +56 9 1234 5678" />
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="text-xs font-medium text-slate-200 mb-1.5 block">
+                Email corporativo
+              </label>
+              <input id="email" type="email"
+                     class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                     placeholder="Ej: nombre@empresa.cl" />
+            </div>
+
+            <div>
+              <label for="desafio" class="text-xs font-medium text-slate-200 mb-1.5 block">
+                Desafío logístico actual
+              </label>
+              <textarea id="desafio" rows="4"
+                        class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                        placeholder="Cuéntanos brevemente tus brechas de productividad, problemas de exactitud, uso de espacio u otros desafíos."></textarea>
+            </div>
+
+            <button type="submit"
+                    class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-techOrange px-4 py-2.5 text-sm font-semibold text-navy shadow-lg shadow-techOrange/40 transition hover:bg-orange-500">
+              <span>Solicitar Diagnóstico Gratuito</span>
+              <i data-lucide="send" class="h-4 w-4"></i>
+            </button>
+            <p class="text-[11px] text-slate-500">
+              Responderemos en máximo 1 día hábil. Tu información será tratada
+              de forma confidencial.
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-900">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-[11px] text-slate-500">
+          <p>© <span id="year"></span> SCB Logística. Todos los derechos reservados.</p>
+          <p>Diseñado para operaciones B2B exigentes en Chile y Latam.</p>
+        </div>
+      </div>
+    </footer>
+
+  <!-- Script para navbar sticky, menú móvil y Lucide -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Inicializa íconos Lucide
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+
+      // Actualiza año en footer
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // Transición de color del navbar al hacer scroll
+      var navbar = document.getElementById('navbar');
+      function handleScroll() {
+        if (window.scrollY > 40) {
+          navbar.classList.add('bg-navy/95', 'backdrop-blur', 'shadow-lg', 'shadow-black/40', 'border-b', 'border-slate-900');
+        } else {
+          navbar.classList.remove('bg-navy/95', 'backdrop-blur', 'shadow-lg', 'shadow-black/40', 'border-b', 'border-slate-900');
+        }
+      }
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+
+      // Menú móvil
+      var mobileButton = document.getElementById('mobile-menu-button');
+      var mobileMenu = document.getElementById('mobile-menu');
+      if (mobileButton && mobileMenu) {
+        mobileButton.addEventListener('click', function () {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cierra menú móvil al hacer click en un enlace
+        mobileMenu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
