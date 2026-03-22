@@ -1,0 +1,56 @@
+<svg width="860" height="410" viewBox="0 0 860 410" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Isotipo (icon from Figma) -->
+  <g>
+    <path d="M0.0168663 308V102L66.0169 141V270L0.0168663 308Z" fill="#79ABDE"/>
+    <path d="M0.0168663 102L179.017 0V77L66.0169 141L0.0168663 102Z" fill="#79ABDE"/>
+    <path d="M358.017 308L358.197 102L292.017 141V270L358.017 308Z" fill="#C7D9E7"/>
+    <path d="M358.197 102L179.017 0V77L292.017 141L358.197 102Z" fill="#C7D9E7"/>
+    <path d="M0 307.98L179.644 409.052L178.017 332L66 269.98L0 307.98Z" fill="#1C3C9C"/>
+    <path d="M179.644 409.052L358.018 308.001L292.017 270L178.017 332L179.644 409.052Z" fill="#1C3C9C"/>
+    <path d="M66.0169 270V141L128.017 176.5V244.5L178.017 270V332L66.0169 270Z" fill="#C7D9E7"/>
+    <path d="M292.017 270V141L230.017 176.5V244.5L178.017 270V332L292.017 270Z" fill="#79ABDE"/>
+    <path d="M179.032 77.0087L292.017 141L230.017 176.5L179.032 144L128.032 176.509L66.032 141.009L179.032 77.0087Z" fill="#003895"/>
+  </g>
+
+  <!-- Logotipo (texto) -->
+  <g font-family="'Inter', 'Helvetica Neue', Arial, sans-serif">
+    <!-- SCB -->
+    <text
+      x="394"
+      y="252"
+      font-size="178"
+      font-weight="800"
+      fill="#1C3C9C"
+      letter-spacing="-5"
+    >SCB</text>
+
+    <!-- Línea separadora -->
+    <line x1="394" y1="270" x2="850" y2="270" stroke="#1C3C9C" stroke-width="1.5"/>
+
+    <!-- Supply Chain Business -->
+    <text
+      x="396"
+      y="297"
+      font-size="18.5"
+      font-weight="600"
+      fill="#4a6080"
+      letter-spacing="5"
+    >Supply Chain Business</text>
+
+    <!-- Asesoría y Dirección de Proyectos -->
+    <text
+      x="396"
+      y="328"
+      font-size="15.5"
+      font-weight="400"
+      fill="#6b7f99"
+      letter-spacing="3.5"
+    >Asesoría y Dirección de Proyectos</text>
+  </g>
+</svg>

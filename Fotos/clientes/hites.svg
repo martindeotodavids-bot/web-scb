@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 75" width="220" height="75">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- "h" -->
+  <text font-family="'Nunito', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif"
+        font-weight="800" font-size="58" fill="#1a6db8" dominant-baseline="auto">
+    <tspan x="6" y="66">h</tspan>
+  </text>
+
+  <!-- "ites" — split so we can hide the i dot and replace it -->
+  <text font-family="'Nunito', 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif"
+        font-weight="800" font-size="58" fill="#1a6db8">
+    <!-- i without its dot: use a dotless-i workaround via clip -->
+    <tspan x="46" y="66">i</tspan>
+    <tspan>tes</tspan>
+  </text>
+
+  <!-- Orange dot replacing the dot of the i -->
+  <circle cx="57" cy="13" r="7.5" fill="#F5A623"/>
+
+  <!-- ® mark -->
+  <text x="203" y="68" font-family="sans-serif" font-size="13" fill="#1a6db8">®</text>
+</svg>

@@ -88,6 +88,35 @@ index.html
     .reveal-fade[data-delay="1"] { transition-delay: 0.08s; }
     .reveal-fade[data-delay="2"] { transition-delay: 0.16s; }
     .reveal-fade[data-delay="3"] { transition-delay: 0.24s; }
+
+    /* ── Confían en nosotros tabs ────────────────────────── */
+    .confian-tab {
+      padding: 0.375rem 1.125rem;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #94a3b8;
+      border: 1px solid #1e293b;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .confian-tab:hover { color: #e2e8f0; border-color: #334155; }
+    .confian-tab.ct-active { background-color: #ff8c00; border-color: #ff8c00; color: white; }
+    .cl-item { transition: opacity 0.2s; }
+    .cl-item.cl-hidden { display: none; }
+    .cl-card {
+      display: flex;
+      height: 2.75rem;
+      align-items: center;
+      border-radius: 0.5rem;
+      background: white;
+      padding: 0.375rem 0.75rem;
+    }
+    .cl-img { height: 100%; width: auto; max-width: 110px; object-fit: contain; }
+    .cl-text { font-size: 1rem; font-weight: 800; letter-spacing: -0.015em; color: #1e293b; }
+    #confian-grid { transition: opacity 0.2s; }
+    #confian-grid.cl-fading { opacity: 0; }
   </style>
 </head>
 <body class="font-sans bg-navy text-slate-100 antialiased">
@@ -96,14 +125,8 @@ index.html
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <!-- Logo -->
-        <a href="#hero" class="flex items-center gap-2">
-          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-techOrange/10 border border-techOrange/40">
-            <span class="text-techOrange font-semibold text-lg">SCB</span>
-          </div>
-          <div class="flex flex-col leading-tight">
-            <span class="text-sm font-semibold tracking-wide">SCB Logística</span>
-            <span class="text-[11px] text-slate-400">Supply Chain & B2B</span>
-          </div>
+        <a href="#hero" class="flex items-center">
+          <img src="fotos/logo-scb-light.svg" alt="SCB Logística" class="h-10 w-auto max-w-[220px] object-contain" loading="eager" />
         </a>
 
         <!-- Navegación desktop -->
@@ -157,7 +180,7 @@ index.html
           fetchpriority="high"
         />
         <!-- Overlay uniforme: oscurece la imagen manteniendo contraste con el texto -->
-        <div class="absolute inset-0 bg-navy/65"></div>
+        <div class="absolute inset-0 bg-navy/55"></div>
         <!-- Fade inferior para transición suave hacia la siguiente sección -->
         <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-navy to-transparent"></div>
       </div>
@@ -181,13 +204,13 @@ index.html
 
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-slate-50">
               Garantizamos el aumento de tu
-              <span class="text-techOrange">productividad logística</span>.
+              <span class="text-techOrange">Productividad logística</span>.
             </h1>
 
             <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-xl">
               Más que consultores, somos implementadores que rediseñan y tecnifican
               procesos logísticos, mejorando la rentabilidad y visibilidad de tu operación
-              B2B y omnicanal.
+              B2C y omnicanal.
             </p>
 
             <!-- Bullets de confianza -->
@@ -221,7 +244,7 @@ index.html
             <!-- Cinta superior -->
             <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs text-emerald-300">
               <i data-lucide="sparkles" class="h-4 w-4"></i>
-              <span>Resultados típicos en 6-12 meses</span>
+              <span>Resultados típicos en 4-6 semanas</span>
             </div>
 
             <!-- Métricas -->
@@ -248,7 +271,7 @@ index.html
                   <p class="text-sm font-medium text-slate-50">Put-to-Light & Pick-to-Light integrados</p>
                   <p class="mt-1 text-xs text-slate-400">
                     Diseñamos, integramos y operamos tecnologías lumínicas para
-                    garantizar velocidad, trazabilidad y ergonomía al recolector.
+                    garantizar velocidad, trazabilidad, eficacia y ergonomía al recolector.
                   </p>
                 </div>
               </div>
@@ -267,8 +290,8 @@ index.html
               Reingeniería de Procesos
             </h2>
             <p class="mt-2 max-w-2xl text-sm sm:text-base text-slate-300">
-              Rediseñamos la operación de punta a punta, alineando layout, tecnología,
-              personas y KPIs para que tu centro logístico opere como un sistema orquestado.
+              Rediseñamos la operación de punta a punta, alineando layout, tecnología, sistemas y
+              personas para que tu centro logístico opere como un sistema orquestado.
             </p>
             <p class="mt-2 max-w-2xl text-xs sm:text-sm text-slate-400">
               Enfoque consultivo, pero con bajada operativa y acompañamiento en piso.
@@ -330,7 +353,7 @@ index.html
                 </li>
                 <li class="flex items-center gap-2">
                   <i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-400"></i>
-                  <span>Definición de layout, rutas y perfiles de puesto.</span>
+                  <span>Definición de layout, procesos y perfiles de puesto.</span>
                 </li>
               </ul>
             </div>
@@ -379,7 +402,7 @@ index.html
           class="h-full w-full object-cover object-center"
           loading="lazy"
         />
-        <div class="absolute inset-0 bg-slate-950/75"></div>
+        <div class="absolute inset-0 bg-slate-950/65"></div>
       </div>
       <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <div class="max-w-3xl">
@@ -388,7 +411,7 @@ index.html
           </h2>
           <p class="mt-2 text-sm sm:text-base text-slate-300">
             Diseñamos sistemas lumínicos a la medida de tu operación, integrados a WMS/ERP,
-            para aumentar velocidad, reducir errores y mejorar la ergonomía del recolector.
+            para aumentar velocidad, reducir errores y mejorar la rentabilidad de tu empresa.
           </p>
         </div>
 
@@ -405,10 +428,10 @@ index.html
                 <span>Tecnología Put-to-Light</span>
               </div>
               <h3 class="mt-4 text-xl font-semibold text-slate-50">
-                Consolidación ágil por destino
+                Consolidación de pedidos por agrupaciones logicas y eficientes para el proceso
               </h3>
               <p class="mt-2 text-sm text-slate-300">
-                Ideal para operaciones con alto número de tiendas o clientes B2B.
+                Ideal para operaciones con alto número de tiendas, mayoristas y/o clientes B2C (E-Commers).
                 La luz indica dónde depositar cada unidad, eliminando la necesidad de
                 memorizar códigos o revisar planillas.
               </p>
@@ -424,7 +447,7 @@ index.html
                 </li>
                 <li class="flex items-start gap-2">
                   <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
-                  <span>Excelente para omnicanalidad: e-commerce, retail físico y mayoristas.</span>
+                  <span>El sistema valida articulos, clientes, transportes y destinos minimizando errores.</span>
                 </li>
               </ul>
             </div>
@@ -441,25 +464,25 @@ index.html
                 <span>Tecnología Pick-to-Light</span>
               </div>
               <h3 class="mt-4 text-xl font-semibold text-slate-50">
-                Picking dirigido por luz
+                Picking de pedidos dirigido por luces
               </h3>
               <p class="mt-2 text-sm text-slate-300">
-                Perfecto para zonas de alta rotación. La luz guía al recolector a la
-                ubicación correcta, con cantidad a tomar, minimizando recorridos y errores.
+                Perfecto para gran volumen de pedidos de articulos pequeños y de alta rotación. La luz guía al recolector al articulo solicitado,
+                indica cantidad a tomar, minimizando los desplazamientos y errores.
               </p>
 
               <ul class="mt-4 space-y-2 text-sm text-slate-200">
                 <li class="flex items-start gap-2">
                   <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
-                  <span><strong>40-60% de mejora</strong> en líneas por hora por recolector.</span>
+                  <span><strong>60-80% de mejora</strong> en líneas por hora pickeadas por recolector.</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
-                  <span><strong>99,9% de certeza</strong> en la ubicación y cantidad recolectada.</span>
+                  <span><strong>99,9% de certeza</strong> en los articulos y cantidad recolectada.</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <i data-lucide="check-circle-2" class="mt-0.5 h-4 w-4 text-emerald-400"></i>
-                  <span>Curva de aprendizaje muy baja; operadores productivos en días.</span>
+                  <span>Operacion intuitiva, aprendizaje muy rápido; operadores productivos en horas.</span>
                 </li>
               </ul>
             </div>
@@ -469,127 +492,208 @@ index.html
     </section>
 
     <!-- CALCULADORA PTL (Lead Magnet) -->
-    <section class="bg-slate-100 text-slate-900">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
-        <div class="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
-          <!-- Texto explicativo -->
-          <div>
-            <h2 class="text-2xl sm:text-3xl font-semibold text-navy">
-              ¿Cuánto más eficiente podrías ser con PTL?
-            </h2>
-            <p class="mt-3 text-sm sm:text-base text-slate-700">
-              Proyecta rápidamente el potencial de mejora en tu operación con un sistema
-              Put-to-Light bien diseñado. Completa los datos de tu operación diaria y
-              te ayudamos a dimensionar el impacto.
-            </p>
-            <ul class="mt-4 space-y-2 text-sm text-slate-700">
-              <li class="flex items-start gap-2">
-                <i data-lucide="sparkles" class="mt-0.5 h-4 w-4 text-emerald-500"></i>
-                <span>Escenarios personalizados según tu mix de canales y SKUs.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i data-lucide="sparkles" class="mt-0.5 h-4 w-4 text-emerald-500"></i>
-                <span>Enfoque financiero: productividad, errores y costo por pedido.</span>
-              </li>
-            </ul>
-          </div>
+    <section id="calculadora" class="bg-slate-100 text-slate-900">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
 
-          <!-- Formulario calculadora -->
-          <div class="rounded-2xl bg-slate-50 border border-slate-200 shadow-md shadow-slate-300/40 p-6 sm:p-7">
-            <form class="space-y-4">
-              <!-- Primera fila -->
+        <!-- Encabezado centrado -->
+        <div class="text-center mb-10">
+          <h2 class="text-2xl sm:text-3xl font-semibold text-navy">
+            ¿Cuánto más eficiente podría ser tu operación?
+          </h2>
+          <p class="mt-3 max-w-2xl mx-auto text-sm sm:text-base text-slate-600">
+            Proyecta rápidamente el potencial de mejora aproximado en tu operación con un sistema Put-to-Light
+            bien diseñado. Completa los datos de tu operación diaria y te ayudamos a dimensionar el impacto.
+          </p>
+        </div>
+
+        <!-- Grid: formulario izquierda | resultados derecha -->
+        <div class="grid gap-8 lg:grid-cols-2 items-start">
+
+          <!-- Formulario -->
+          <div class="rounded-2xl bg-white border border-slate-200 shadow-md shadow-slate-300/40 p-6 sm:p-7">
+            <p class="text-xs font-semibold uppercase tracking-widest text-techOrange mb-5">Datos de tu operación</p>
+            <form id="ptl-form" class="space-y-4" novalidate>
+
+              <!-- Fila 1: a + b -->
               <div class="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label for="pedidos" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
-                    <span>Pedidos diarios aproximados</span>
-                    <span class="text-slate-400">unid/día</span>
+                  <label for="ptl-a" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>Pedidos diarios</span>
+                    <span class="text-slate-400">pedidos/día</span>
                   </label>
-                  <input id="pedidos" type="number" inputmode="numeric"
-                         class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
-                         placeholder="Ej: 1.200" />
+                  <input id="ptl-a" type="number" inputmode="numeric" min="1"
+                         class="ptl-input w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none transition"
+                         placeholder="Ej: 1200" />
                 </div>
                 <div>
-                  <label for="lineas" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
-                    <span>Líneas promedio por pedido</span>
-                    <span class="text-slate-400">SKU/pedido</span>
+                  <label for="ptl-b" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>Líneas por pedido</span>
+                    <span class="text-slate-400">líneas/pedido</span>
                   </label>
-                  <input id="lineas" type="number" inputmode="numeric"
-                         class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                  <input id="ptl-b" type="number" inputmode="numeric" min="1"
+                         class="ptl-input w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none transition"
                          placeholder="Ej: 5" />
                 </div>
               </div>
 
-              <!-- Segunda fila -->
+              <!-- Fila 2: c + d -->
               <div class="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label for="recolectores" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
-                    <span>Recolectores actuales</span>
+                  <label for="ptl-c" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>Pickeadores actuales</span>
                     <span class="text-slate-400">personas</span>
                   </label>
-                  <input id="recolectores" type="number" inputmode="numeric"
-                         class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                  <input id="ptl-c" type="number" inputmode="numeric" min="1"
+                         class="ptl-input w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none transition"
                          placeholder="Ej: 15" />
                 </div>
                 <div>
-                  <label for="horas" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
-                    <span>Horas efectivas de operación</span>
+                  <label for="ptl-d" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>Horas de operación</span>
                     <span class="text-slate-400">horas/día</span>
                   </label>
-                  <input id="horas" type="number" inputmode="numeric"
-                         class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
+                  <input id="ptl-d" type="number" inputmode="numeric" min="1" max="24"
+                         class="ptl-input w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none transition"
                          placeholder="Ej: 10" />
                 </div>
               </div>
 
-              <!-- Tercera fila -->
-              <div>
-                <label for="skus" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
-                  <span>SKUs activos en la zona</span>
-                  <span class="text-slate-400">SKU</span>
-                </label>
-                <input id="skus" type="number" inputmode="numeric"
-                       class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
-                       placeholder="Ej: 2.500" />
+              <!-- Fila 3: e + f -->
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="ptl-e" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>SKUs distintos por día</span>
+                    <span class="text-slate-400">SKUs/día</span>
+                  </label>
+                  <input id="ptl-e" type="number" inputmode="numeric" min="1"
+                         class="ptl-input w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none transition"
+                         placeholder="Ej: 800" />
+                </div>
+                <div>
+                  <label for="ptl-f" class="flex items-center justify-between text-xs font-medium text-slate-700 mb-1.5">
+                    <span>Unidades totales al mes</span>
+                    <span class="text-slate-400">unidades/mes</span>
+                  </label>
+                  <input id="ptl-f" type="number" inputmode="numeric" min="1"
+                         class="ptl-input w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none transition"
+                         placeholder="Ej: 50000" />
+                </div>
               </div>
 
-              <!-- CTA calculadora -->
-              <button type="button"
-                      class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-techOrange px-4 py-2.5 text-sm font-semibold text-navy shadow-md shadow-techOrange/40 transition hover:bg-orange-500">
-                <span>Calcular Eficiencia</span>
+              <!-- Botón calcular -->
+              <button id="ptl-btn" type="button"
+                      class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-techOrange px-4 py-2.5 text-sm font-semibold text-navy shadow-md shadow-techOrange/40 transition hover:bg-orange-500 active:scale-95">
+                <span>Calcular potencial</span>
                 <i data-lucide="calculator" class="h-4 w-4"></i>
               </button>
-              <p class="text-[11px] text-slate-500">
-                Esta calculadora es referencial. Para un modelo preciso, agenda un diagnóstico
-                gratuito con nuestro equipo.
+              <p class="text-[11px] text-slate-500 text-center">
+                Resultados referenciales. Para un modelo preciso, agenda un diagnóstico gratuito.
               </p>
             </form>
           </div>
+
+          <!-- Panel de resultados (oculto hasta calcular) -->
+          <div id="ptl-results" class="hidden flex-col gap-4">
+            <p class="text-xs font-semibold uppercase tracking-widest text-navy mb-1">Tu proyección con PTL</p>
+
+            <!-- Tarjeta 1: Equipo óptimo -->
+            <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Equipo óptimo estimado</p>
+                  <p class="mt-1 text-3xl font-bold text-navy" id="res-personas">—</p>
+                  <p class="text-xs text-slate-500 mt-0.5">personas para la misma operación</p>
+                </div>
+                <div class="flex-shrink-0 rounded-xl bg-emerald-50 p-2.5">
+                  <i data-lucide="users" class="h-6 w-6 text-emerald-500"></i>
+                </div>
+              </div>
+              <!-- Barra de ahorro -->
+              <div class="mt-4">
+                <div class="flex justify-between text-xs text-slate-500 mb-1">
+                  <span>Ahorro potencial de equipo</span>
+                  <span id="res-ahorro-pct" class="font-semibold text-emerald-600">—</span>
+                </div>
+                <div class="h-2 rounded-full bg-slate-100 overflow-hidden">
+                  <div id="res-ahorro-bar" class="h-2 rounded-full bg-emerald-400 transition-all duration-700" style="width:0%"></div>
+                </div>
+                <p class="text-xs text-slate-500 mt-1.5">vs. tus <span id="res-actuales">—</span> pickeadores actuales</p>
+              </div>
+            </div>
+
+            <!-- Tarjeta 2: Productividad -->
+            <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Productividad requerida</p>
+                  <p class="mt-1 text-3xl font-bold text-navy" id="res-lph">—</p>
+                  <p class="text-xs text-slate-500 mt-0.5">líneas / hora / persona</p>
+                </div>
+                <div class="flex-shrink-0 rounded-xl bg-blue-50 p-2.5">
+                  <i data-lucide="zap" class="h-6 w-6 text-blue-500"></i>
+                </div>
+              </div>
+              <p class="mt-3 text-xs text-slate-500" id="res-lph-bench">Benchmark del sector: 40–80 líneas/hora.</p>
+            </div>
+
+            <!-- Tarjeta 3: Unidades por persona -->
+            <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Unidades / persona / mes</p>
+                  <p class="mt-1 text-3xl font-bold text-navy" id="res-upm">—</p>
+                  <p class="text-xs text-slate-500 mt-0.5">con el equipo optimizado</p>
+                </div>
+                <div class="flex-shrink-0 rounded-xl bg-orange-50 p-2.5">
+                  <i data-lucide="package" class="h-6 w-6 text-techOrange"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Callout naranja -->
+            <div class="rounded-2xl bg-techOrange px-5 py-4 flex items-start gap-3">
+              <i data-lucide="trending-up" class="mt-0.5 h-5 w-5 flex-shrink-0 text-navy"></i>
+              <div>
+                <p class="text-sm font-semibold text-navy leading-snug">
+                  Empresas con operaciones similares han aumentado su productividad hasta un 40% con Put-to-Light.
+                </p>
+                <a href="#contacto"
+                   class="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-navy underline underline-offset-2 hover:opacity-80 transition">
+                  Agenda un diagnóstico gratuito
+                  <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Estado vacío (visible antes de calcular, en desktop ocupa el espacio derecho) -->
+          <div id="ptl-empty" class="hidden lg:flex flex-col items-center justify-center gap-4 rounded-2xl border-2 border-dashed border-slate-200 p-10 text-center text-slate-400">
+            <i data-lucide="bar-chart-2" class="h-10 w-10 opacity-40"></i>
+            <p class="text-sm">Completa los datos y presiona<br/><strong class="text-slate-600">Calcular potencial</strong> para ver tu proyección.</p>
+          </div>
+
         </div>
       </div>
     </section>
 
     <!-- ¿PARA QUIÉN ES SCB? -->
-    <section id="para-quien" class="relative border-t border-slate-900 overflow-hidden">
+    <section id="para-quien" class="relative border-t border-slate-900 overflow-hidden bg-slate-950">
       <!-- Imagen aérea de CD de fondo -->
       <div class="pointer-events-none absolute inset-0">
         <img
           src="fotos/Opcional.png"
           alt=""
           aria-hidden="true"
-          class="h-full w-full object-cover object-center"
+          class="h-full w-full object-cover object-center opacity-30"
           loading="lazy"
         />
-        <!-- Overlay: deja la imagen más visible manteniendo legibilidad -->
-        <div class="absolute inset-0 bg-slate-950/72"></div>
-        <!-- Vignette perimetral suave -->
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(10,25,47,0.7)_100%)]"></div>
       </div>
       <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <div class="text-center mb-10">
           <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">¿Para quién es SCB?</h2>
           <p class="mt-3 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
             Trabajamos con empresas que operan centros de distribución de mediana y gran escala,
-            con exigencia de servicio multicanal y presión de productividad.
+            con grandes exigencia segun canal de distribución y mucha presión por la productividad y Nivel de Servicio.
           </p>
         </div>
 
@@ -602,8 +706,7 @@ index.html
             </div>
             <h3 class="text-sm font-semibold text-slate-50">Retail & Moda</h3>
             <p class="mt-2 text-xs text-slate-400">
-              Tiendas físicas y canales digitales que exigen despacho rápido, alta rotación de SKUs
-              y exactitud en la asignación por punto de venta.
+              Tiendas físicas y canales digitales que exigen despacho rápido y sin errores en la asignación por punto de venta/destino.
             </p>
           </div>
 
@@ -663,8 +766,8 @@ index.html
               </div>
               <h3 class="text-sm font-semibold text-slate-50">¿Tu operación tiene margen de mejora?</h3>
               <p class="mt-2 text-xs text-slate-400">
-                Si manejas más de 500 pedidos diarios o ves errores recurrentes en picking,
-                vale la pena conversar.
+                Si manejas más de 100 pedidos diarios?,  ves errores recurrentes en picking?, muchas tareas administrativas que no le apportan valor a tu
+                operacion?   Llamanos y conversamos.
               </p>
             </div>
             <a href="#contacto"
@@ -675,6 +778,90 @@ index.html
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- CONFÍAN EN NOSOTROS -->
+    <section id="confian" class="bg-slate-950 border-t border-slate-900 py-14 sm:py-16">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+        <!-- Header -->
+        <div class="text-center mb-10">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 mb-2">Confían en nosotros</p>
+          <p class="text-slate-400 text-sm">+45 empresas en Chile y Latinoamérica</p>
+        </div>
+
+        <!-- Tabs filtro por industria -->
+        <div class="flex justify-center flex-wrap gap-2 mb-10" role="tablist" aria-label="Filtrar por industria">
+          <button class="confian-tab ct-active" data-tab="todos"     role="tab">Todos</button>
+          <button class="confian-tab"           data-tab="ropa"      role="tab">Retail &amp; Moda</button>
+          <button class="confian-tab"           data-tab="alimentos" role="tab">Alimentos e Industria Farmacéutica</button>
+          <button class="confian-tab"           data-tab="logistica" role="tab">Logística &amp; Distribución</button>
+        </div>
+
+        <!-- Grid de logos -->
+        <div id="confian-grid" class="flex flex-wrap justify-center gap-3">
+
+          <!-- ── Retail & Moda (21) ──────────────────────────────────── -->
+          <!-- featured = aparece también en "Todos" curado -->
+          <div class="cl-item" data-cat="ropa" data-featured="1"><div class="cl-card"><img src="fotos/clientes/Levi%27s_logo.svg"  alt="Levi's"           class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa" data-featured="1"><div class="cl-card"><img src="fotos/clientes/wrangler-logo.svg"   alt="Wrangler"         class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa" data-featured="1"><div class="cl-card"><img src="fotos/clientes/columbia.png"        alt="Columbia"         class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa" data-featured="1"><div class="cl-card"><img src="fotos/clientes/idlogistics.png"     alt="Everlast"         class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa" data-featured="1"><div class="cl-card"><img src="fotos/clientes/maersk.png"          alt="Champion"         class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa" data-featured="1"><div class="cl-card"><img src="fotos/clientes/hites.png"           alt="Hites"            class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/Logo_Sparta.png"       alt="Sparta"           class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/maui-sons-2.svg"       alt="Maui &amp; Sons"  class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/pillin.jpeg"           alt="Pillin"           class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/agunsa.png"            alt="Chantilly"        class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/cavasreunidas.png"     alt="Bamers"           class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/everlast.png"          alt="BelSpot"          class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/mosaico.png"           alt="Mosaico"          class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/theline.png"           alt="The Line+"        class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/bubba.png"             alt="Bubba"            class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/blueexpress.png"       alt="Oakley"           class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/monarch.png"           alt="Monarch Esencial" class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/keylogistics.png"      alt="Cavas Reunidas"   class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/champion.png"          alt="GMO"              class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/preunic.png"           alt="Preunic"          class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="ropa"               ><div class="cl-card"><img src="fotos/clientes/gama.png"              alt="GA.MA Italy"      class="cl-img" loading="lazy"/></div></div>
+
+          <!-- ── Alimentos e Industria Farmacéutica (7) ─────────────── -->
+          <div class="cl-item" data-cat="alimentos" data-featured="1"><div class="cl-card"><img src="fotos/clientes/nespresso.png"     alt="Nespresso"      class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="alimentos" data-featured="1"><div class="cl-card"><img src="fotos/clientes/arcoalimentos.png" alt="Arcoalimentos"  class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="alimentos"               ><div class="cl-card"><img src="fotos/clientes/bold.png"             alt="Daily Fresh"    class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="alimentos"               ><div class="cl-card"><img src="fotos/clientes/pronto.png"           alt="Pronto Copec"   class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="alimentos"               ><div class="cl-card"><img src="fotos/clientes/upa.png"              alt="UPA!"           class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="alimentos"               ><div class="cl-card"><img src="fotos/clientes/chantilly.png"        alt="Seven Pharma"   class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="alimentos"               ><div class="cl-card"><img src="fotos/clientes/logo_opko.png"        alt="Opko"           class="cl-img" loading="lazy"/></div></div>
+
+          <!-- ── Logística & Distribución (10) ──────────────────────── -->
+          <div class="cl-item" data-cat="logistica" data-featured="1"><div class="cl-card"><img src="fotos/clientes/patagonia.png"     alt="Maersk"         class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="logistica" data-featured="1"><div class="cl-card"><img src="fotos/clientes/streetmachine.png" alt="Kuehne+Nagel"   class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="logistica" data-featured="1"><div class="cl-card"><img src="fotos/clientes/ert.png"           alt="Blue Express"   class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="logistica" data-featured="1"><div class="cl-card"><img src="fotos/clientes/rabie.png"         alt="Starken"        class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="logistica" data-featured="1"><div class="cl-card"><img src="fotos/clientes/levis.png"         alt="AGUNSA"         class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="logistica"               ><div class="cl-card"><img src="fotos/clientes/kayser.png"           alt="TW Logística"   class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="logistica"               ><div class="cl-card"><img src="fotos/clientes/savillerow.png"       alt="ID Logistics"   class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="logistica"               ><div class="cl-card"><img src="fotos/clientes/logo_key_logistics.svg" alt="Key Logistics" class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="logistica"               ><div class="cl-card"><img src="fotos/clientes/Logo-EIT.png"         alt="EIT"            class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="logistica"               ><div class="cl-card"><img src="fotos/clientes/kw.png"               alt="KW"             class="cl-img" loading="lazy"/></div></div>
+
+          <!-- ── Otros rubros (solo en "Todos" si son featured) ──────── -->
+          <div class="cl-item" data-cat="otros"               ><div class="cl-card"><img src="fotos/clientes/coloranimal.png"   alt="O.PV"           class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="otros"               ><div class="cl-card"><img src="fotos/clientes/pcfactory.png"     alt="OPKO"           class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="otros"               ><div class="cl-card"><img src="fotos/clientes/starken.png"       alt="Color Animal"   class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="otros"               ><div class="cl-card"><img src="fotos/clientes/bamers.png"        alt="Salfa"          class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="otros"               ><div class="cl-card"><img src="fotos/clientes/aramco.png"        alt="Aramco"         class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="otros"               ><div class="cl-card"><img src="fotos/clientes/oakley.png"        alt="Komatsu"        class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="otros"               ><div class="cl-card"><img src="fotos/clientes/vicsa.png"         alt="VICSA Safety"   class="cl-img" loading="lazy"/></div></div>
+          <div class="cl-item" data-cat="otros"               ><div class="cl-card"><img src="fotos/clientes/twlogistica.png"   alt="PC Factory"     class="cl-img" loading="lazy"/></div></div>
+
+        </div>
+
+        <!-- Contador -->
+        <p id="confian-count" class="text-center text-xs text-slate-600 mt-8">Mostrando 14 empresas</p>
+
       </div>
     </section>
 
@@ -713,14 +900,14 @@ index.html
               </div>
             </div>
             <p class="mt-3 text-sm text-slate-300">
-              Especialista en diseño integral de centros de distribución y
-              reingeniería de procesos de almacenaje, picking y consolidación.
+              Especialista en diseño integral de centros de distribución, 
+              reingeniería de procesos y tecnificación.
             </p>
             <p class="mt-3 text-xs text-slate-400">
               Ha liderado proyectos para empresas de retail, consumo masivo y B2B
-              industriales, con foco en resultados medibles.
+              industriales, con foco en rentabilidad de las empresas.
             </p>
-            <a href="https://www.linkedin.com/in/miguel-de-oto/"
+            <a href="https://www.linkedin.com/in/miguel-de-oto-0a64727/"
                target="_blank" rel="noopener noreferrer"
                class="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
               <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -755,7 +942,7 @@ index.html
               Acompaña en terreno la implementación y estabilización de nuevas
               formas de trabajo con supervisores y jefaturas.
             </p>
-            <a href="https://www.linkedin.com/in/juan-carlos-saez/"
+            <a href="https://www.linkedin.com/in/juan-carlos-saez-salazar-9b054525/"
                target="_blank" rel="noopener noreferrer"
                class="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
               <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -841,7 +1028,7 @@ index.html
                     aria-label="Caso anterior">
               <i data-lucide="chevron-left" class="h-5 w-5"></i>
             </button>
-            <span id="casos-counter" class="text-xs text-slate-400 tabular-nums w-10 text-center select-none">1 / 3</span>
+            <span id="casos-counter" class="text-xs text-slate-400 tabular-nums w-10 text-center select-none">1 / 5</span>
             <button id="casos-next"
                     class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 hover:border-techOrange/70 hover:text-techOrange transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                     aria-label="Caso siguiente">
@@ -892,8 +1079,8 @@ index.html
                   <div class="flex flex-col gap-4">
                     <div>
                       <p class="text-sm text-slate-200">
-                        Rediseño del flujo de consolidación y habilitación de Put-to-Light
-                        para preparación de pedidos por tienda y e-commerce.
+                        Rediseño del flujo de preparacion de pedidos y tecnificación del proceso 
+                        con sistemas de Pick-to-Light para el e-commerce.
                       </p>
                       <p class="mt-2 text-xs text-slate-400">
                         Optimización de uso de espacio, control de quiebres y reducción de
@@ -906,7 +1093,7 @@ index.html
                         <span>+40% Productividad</span>
                       </p>
                       <p class="mt-1 text-xs text-slate-300">
-                        en consolidación de pedidos y reducción significativa de errores de asignación.
+                        en aumeto de las lineas de picking de pedidos y reducción significativa de errores de asignación.
                       </p>
                     </div>
                   </div>
@@ -948,12 +1135,12 @@ index.html
                   <div class="flex flex-col gap-4">
                     <div>
                       <p class="text-sm text-slate-200">
-                        Implementación de Pick-to-Light en zonas de alta rotación,
-                        reorganización de layout y definición de nuevas rutas de picking.
+                        Implementación de estaciones Put-to-Light en zonas de alta rotación,
+                        para distribución de pedidos e-commerce. 
                       </p>
                       <p class="mt-2 text-xs text-slate-400">
-                        Mejora de capacidad sin ampliar superficie, manteniendo servicio
-                        a tiendas y canales digitales.
+                        Mejora de productividad sin ampliar superficie, mejorando el nivel de servicio
+                        a canales digitales.
                       </p>
                     </div>
                     <div class="rounded-xl bg-slate-900/80 border border-emerald-500/40 px-4 py-3">
@@ -962,7 +1149,7 @@ index.html
                         <span>+50% Líneas/hora</span>
                       </p>
                       <p class="mt-1 text-xs text-slate-300">
-                        por recolector en zonas intervenidas, manteniendo estándares de calidad.
+                        aumento lineas por hora de pedidos, mejorando eficiencia y nivel de servicio.
                       </p>
                     </div>
                   </div>
@@ -984,14 +1171,21 @@ index.html
                   </div>
                 </div>
                 <div class="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start">
-                  <!-- Placeholder video -->
-                  <div class="relative aspect-video rounded-xl overflow-hidden bg-slate-900/80 border border-slate-800/80 flex items-center justify-center">
-                    <div class="text-center px-6">
-                      <div class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-slate-800 border border-slate-700">
-                        <i data-lucide="video-off" class="h-6 w-6 text-slate-500"></i>
+                  <div class="video-facade relative aspect-video rounded-xl overflow-hidden cursor-pointer group bg-slate-900"
+                       data-video-id="1hs6ZNJRs64"
+                       role="button" tabindex="0" aria-label="Reproducir video Pillin">
+                    <img src="https://img.youtube.com/vi/1hs6ZNJRs64/maxresdefault.jpg"
+                         alt="Thumbnail video Pillin Put-to-Light"
+                         class="w-full h-full object-cover"
+                         loading="lazy" />
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/15 transition-colors">
+                      <div class="flex h-16 w-16 items-center justify-center rounded-full bg-red-600/95 shadow-xl shadow-black/60 group-hover:scale-110 transition-transform duration-200">
+                        <svg class="h-6 w-6 fill-white ml-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
                       </div>
-                      <p class="text-sm font-medium text-slate-400">Video próximamente</p>
-                      <p class="mt-1 text-xs text-slate-600">El caso de Pillin estará disponible en breve.</p>
+                    </div>
+                    <div class="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[10px] text-white backdrop-blur-sm pointer-events-none">
+                      <svg class="h-3 w-3 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8z"/><path fill="#fff" d="M9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+                      <span>Reproducir video</span>
                     </div>
                   </div>
                   <div class="flex flex-col gap-4">
@@ -1019,6 +1213,97 @@ index.html
               </div>
             </div>
 
+            <!-- ── SLIDE 4: Hites (contenido pendiente) ── -->
+            <div class="w-full flex-shrink-0">
+              <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-5 sm:p-7 shadow-lg shadow-black/40">
+                <div class="flex flex-wrap items-center gap-3 mb-5">
+                  <div class="inline-flex h-10 items-center rounded-lg bg-white px-3 py-1.5 shadow-sm">
+                    <img src="fotos/clientes/hites.png" alt="Hites" class="h-full w-auto max-w-[110px] object-contain"/>
+                  </div>
+                  <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/80 px-3 py-1 text-[11px] text-slate-300">
+                    <span class="font-semibold tracking-wide uppercase">Hites</span>
+                    <span class="h-1 w-1 rounded-full bg-slate-600"></span>
+                    <span>Retail &amp; tiendas</span>
+                  </div>
+                </div>
+                <div class="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start">
+                  <div class="video-facade relative aspect-video rounded-xl overflow-hidden cursor-pointer group bg-slate-900"
+                       data-video-id="dRopFuOm4GE"
+                       role="button" tabindex="0" aria-label="Reproducir video Hites">
+                    <img src="https://img.youtube.com/vi/dRopFuOm4GE/maxresdefault.jpg"
+                         alt="Thumbnail video Hites Put-to-Light"
+                         class="w-full h-full object-cover"
+                         loading="lazy" />
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/15 transition-colors">
+                      <div class="flex h-16 w-16 items-center justify-center rounded-full bg-red-600/95 shadow-xl shadow-black/60 group-hover:scale-110 transition-transform duration-200">
+                        <svg class="h-6 w-6 fill-white ml-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
+                    </div>
+                    <div class="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[10px] text-white backdrop-blur-sm pointer-events-none">
+                      <svg class="h-3 w-3 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8z"/><path fill="#fff" d="M9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+                      <span>Reproducir video</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-4">
+                    <div>
+                      <p class="text-sm text-slate-200">
+                        Descripción del caso Hites próximamente.
+                      </p>
+                      <p class="mt-2 text-xs text-slate-400">
+                        Implementación de tecnología Put-to-Light en operaciones de retail.
+                      </p>
+                    </div>
+                    <div class="rounded-xl bg-slate-900/80 border border-slate-700/40 px-4 py-3">
+                      <p class="flex items-center gap-2 text-slate-400 font-semibold text-sm">
+                        <i data-lucide="clock" class="h-4 w-4 flex-shrink-0"></i>
+                        <span>Métricas próximamente</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── SLIDE 5: Carro de Picking Multi-ordenes ── -->
+            <div class="w-full flex-shrink-0">
+              <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-5 sm:p-7 shadow-lg shadow-black/40">
+                <div class="flex flex-wrap items-center gap-3 mb-5">
+                  <div class="bg-white rounded-lg px-3 py-1.5 shadow-sm">
+                    <img src="fotos/logo-scb.svg" alt="SCB Logística" class="h-7 w-auto max-w-[180px] object-contain"/>
+                  </div>
+                  <div class="inline-flex items-center gap-2 rounded-full bg-slate-900/80 px-3 py-1 text-[11px] text-slate-300">
+                    <span class="font-semibold tracking-wide uppercase">Carro de Picking Multi-ordenes</span>
+                  </div>
+                </div>
+                <div class="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start">
+                  <div class="video-facade relative aspect-video rounded-xl overflow-hidden cursor-pointer group bg-slate-900"
+                       data-video-id="C5npMuJOfxI"
+                       role="button" tabindex="0" aria-label="Reproducir video Carro de Picking Multi-ordenes">
+                    <img src="https://img.youtube.com/vi/C5npMuJOfxI/maxresdefault.jpg"
+                         alt="Thumbnail video Carro de Picking Multi-ordenes"
+                         class="w-full h-full object-cover"
+                         loading="lazy" />
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/15 transition-colors">
+                      <div class="flex h-16 w-16 items-center justify-center rounded-full bg-red-600/95 shadow-xl shadow-black/60 group-hover:scale-110 transition-transform duration-200">
+                        <svg class="h-6 w-6 fill-white ml-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
+                    </div>
+                    <div class="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-[10px] text-white backdrop-blur-sm pointer-events-none">
+                      <svg class="h-3 w-3 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8z"/><path fill="#fff" d="M9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+                      <span>Reproducir video</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-4">
+                    <div>
+                      <p class="text-sm text-slate-200">
+                        Descripción del caso próximamente.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div><!-- /casos-track -->
         </div><!-- /casos-viewport -->
 
@@ -1030,6 +1315,10 @@ index.html
                   data-slide="1" role="tab" aria-selected="false" aria-label="Caso 2: Kayser"></button>
           <button class="h-2 w-2 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300"
                   data-slide="2" role="tab" aria-selected="false" aria-label="Caso 3: Pillin"></button>
+          <button class="h-2 w-2 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300"
+                  data-slide="3" role="tab" aria-selected="false" aria-label="Caso 4: Hites"></button>
+          <button class="h-2 w-2 rounded-full bg-slate-600 hover:bg-slate-400 transition-all duration-300"
+                  data-slide="4" role="tab" aria-selected="false" aria-label="Caso 5: Carro de Picking Multi-ordenes"></button>
         </div>
 
       </div>
@@ -1057,7 +1346,7 @@ index.html
           <p class="mt-3 text-sm text-slate-400 leading-relaxed">
             El costo varía según el número de posiciones, zonas de picking y nivel de integración con tu WMS o ERP actual.
             En nuestra primera sesión de diagnóstico —gratuita y sin compromiso— dimensionamos el proyecto y te presentamos
-            rangos de inversión reales. Normalmente el retorno se logra en 12 a 18 meses.
+            rangos de inversión reales. Normalmente el retorno se logra en 4 a 6 meses.
           </p>
         </details>
 
@@ -1068,9 +1357,9 @@ index.html
             <i data-lucide="chevron-down" class="h-4 w-4 flex-shrink-0 text-slate-400 transition-transform group-open:rotate-180"></i>
           </summary>
           <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-            Sí. Nuestras soluciones están diseñadas para integrarse con los principales WMS del mercado (SAP, Oracle WMS,
-            Infor, sistemas propietarios) y con ERP estándar. El proceso de integración es parte de nuestro alcance y
-            queda documentado para el equipo de TI del cliente.
+            Sí. Nuestras soluciones están diseñadas para integrarse con los principales WMS del mercado (SAP, SAP R3,
+            Hanna, Oracle WMS, Infor, Odoo, sistemas propietarios) y con ERP estándar. El proceso de integración es
+            parte de nuestro alcance y queda documentado para el equipo de TI del cliente.
           </p>
         </details>
 
@@ -1081,9 +1370,9 @@ index.html
             <i data-lucide="chevron-down" class="h-4 w-4 flex-shrink-0 text-slate-400 transition-transform group-open:rotate-180"></i>
           </summary>
           <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-            Un proyecto estándar (levantamiento + diseño + implementación + estabilización) toma entre 8 y 16 semanas
+            Un proyecto estándar (levantamiento + diseño + implementación + estabilización) toma entre 3 y 6 semanas
             dependiendo de la complejidad. Trabajamos en etapas para no paralizar la operación y los primeros resultados
-            se perciben desde la semana 4.
+            se perciben desde los primeros días.
           </p>
         </details>
 
@@ -1094,10 +1383,10 @@ index.html
             <i data-lucide="chevron-down" class="h-4 w-4 flex-shrink-0 text-slate-400 transition-transform group-open:rotate-180"></i>
           </summary>
           <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-            No solo diagnosticamos: implementamos. Nuestros socios vienen de haber operado centros de distribución de
-            alta exigencia, no solo de consultoría. Eso significa que las soluciones que proponemos son factibles en
-            piso, no solo en papel. Además, medimos el resultado y acompañamos la estabilización hasta que los KPIs
-            prometidos se sostienen.
+            Implementamos soluciones, no vendemos luces. Nuestros socios vienen de haber operado centros de distribución
+            de alta exigencia, no solo de consultoría. Eso significa que las soluciones que proponemos son factibles en
+            piso, no solo en papel. Medimos el resultado y acompañamos la estabilización hasta que los KPIs prometidos
+            se sostienen.
           </p>
         </details>
 
@@ -1108,7 +1397,7 @@ index.html
             <i data-lucide="chevron-down" class="h-4 w-4 flex-shrink-0 text-slate-400 transition-transform group-open:rotate-180"></i>
           </summary>
           <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-            Nuestro mercado principal es Chile, pero hemos ejecutado proyectos en Perú, Colombia y Argentina.
+            Nuestro mercado principal es Chile, pero tenemos proyectos en Perú, Colombia, Costa Rica y Argentina.
             Si tu operación está en otro país de Latam, conversemos: evaluamos cada caso según la viabilidad
             de desplazamiento y los tiempos de tu proyecto.
           </p>
@@ -1139,7 +1428,7 @@ index.html
               </div>
               <div>
                 <p class="text-xs uppercase tracking-wide text-slate-400">Correo</p>
-                <p class="text-sm">contacto@scblogistica.cl</p>
+                <p class="text-sm">mdeoto@scblogistica.cl</p>
               </div>
             </div>
             <div class="flex items-center gap-3">
@@ -1148,7 +1437,7 @@ index.html
               </div>
               <div>
                 <p class="text-xs uppercase tracking-wide text-slate-400">Teléfono</p>
-                <p class="text-sm">+56 9 0000 0000</p>
+                <p class="text-sm">+56 9 9874 1150</p>
               </div>
             </div>
             <div class="flex items-center gap-3">
@@ -1414,19 +1703,28 @@ index.html
       })();
 
       // ── Facade de video YouTube ────────────────────────────────
-      // Abre en YouTube (nueva pestaña) para compatibilidad con
-      // videos que tengan embedding deshabilitado.
-      // Si en el futuro se habilita embedding en YouTube Studio,
-      // reemplazar window.open por la lógica de iframe.
+      // Video facade: inyecta iframe con autoplay al hacer clic.
+      // Requiere que el vídeo tenga embedding habilitado en YouTube Studio.
       document.querySelectorAll('.video-facade').forEach(function (facade) {
         function activateVideo() {
           var videoId = facade.dataset.videoId;
           if (!videoId) return;
-          window.open(
-            'https://www.youtube.com/watch?v=' + videoId,
-            '_blank',
-            'noopener,noreferrer'
-          );
+          var iframe = document.createElement('iframe');
+          iframe.setAttribute('src',
+            'https://www.youtube.com/embed/' + videoId +
+            '?autoplay=1&rel=0&modestbranding=1');
+          iframe.setAttribute('allow',
+            'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.setAttribute('loading', 'lazy');
+          iframe.className = 'absolute inset-0 w-full h-full';
+          iframe.style.border = 'none';
+          // Reemplaza el contenido del facade por el iframe
+          facade.innerHTML = '';
+          facade.appendChild(iframe);
+          facade.style.cursor = 'default';
+          facade.removeEventListener('click', activateVideo);
+          facade.removeEventListener('keydown', keyHandler);
         }
         function keyHandler(e) {
           if (e.key === 'Enter' || e.key === ' ') activateVideo();
@@ -1487,6 +1785,135 @@ index.html
           c.textContent = (c.dataset.prefix || '') + c.dataset.target + (c.dataset.suffix || '');
         });
       }
+
+      // ── Confían en nosotros — filtro por industria ────────────
+      (function () {
+        var tabs     = document.querySelectorAll('.confian-tab');
+        var grid     = document.getElementById('confian-grid');
+        var countEl  = document.getElementById('confian-count');
+        if (!grid) return;
+
+        function filterTo(cat) {
+          grid.classList.add('cl-fading');
+          setTimeout(function () {
+            var items   = grid.querySelectorAll('.cl-item');
+            var visible = 0;
+            items.forEach(function (item) {
+              var show = false;
+              if (cat === 'todos') {
+                // "Todos" solo muestra los logos destacados (data-featured="1")
+                show = item.dataset.featured === '1';
+              } else {
+                show = item.dataset.cat === cat;
+              }
+              if (show) {
+                item.classList.remove('cl-hidden');
+                visible++;
+              } else {
+                item.classList.add('cl-hidden');
+              }
+            });
+            if (countEl) {
+              countEl.textContent = 'Mostrando ' + visible + ' empresa' + (visible !== 1 ? 's' : '');
+            }
+            grid.classList.remove('cl-fading');
+          }, 200);
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            tabs.forEach(function (t) {
+              t.classList.remove('ct-active');
+              t.setAttribute('aria-selected', 'false');
+            });
+            this.classList.add('ct-active');
+            this.setAttribute('aria-selected', 'true');
+            filterTo(this.dataset.tab);
+          });
+        });
+
+        // Aplicar filtro inicial al cargar la página
+        filterTo('todos');
+      })();
+
+      // ── CALCULADORA PTL ──────────────────────────────────────────────
+      (function () {
+        var btn     = document.getElementById('ptl-btn');
+        var results = document.getElementById('ptl-results');
+        var empty   = document.getElementById('ptl-empty');
+        if (!btn) return;
+
+        function fmtNum(n) {
+          return n.toLocaleString('es-CL');
+        }
+
+        btn.addEventListener('click', function () {
+          var a = parseFloat(document.getElementById('ptl-a').value); // pedidos/día
+          var b = parseFloat(document.getElementById('ptl-b').value); // líneas/pedido
+          var c = parseFloat(document.getElementById('ptl-c').value); // pickeadores actuales
+          var d = parseFloat(document.getElementById('ptl-d').value); // horas/día
+          var e = parseFloat(document.getElementById('ptl-e').value); // SKUs/día
+          var f = parseFloat(document.getElementById('ptl-f').value); // unidades/mes
+
+          // Validate all 6 fields
+          var inputs = document.querySelectorAll('.ptl-input');
+          var valid = true;
+          inputs.forEach(function (inp) {
+            var val = parseFloat(inp.value);
+            if (!inp.value || isNaN(val) || val <= 0) {
+              inp.classList.add('border-red-400');
+              valid = false;
+            } else {
+              inp.classList.remove('border-red-400');
+            }
+          });
+          if (!valid) return;
+
+          // Formula (basada en productividad actual del equipo)
+          // l/h = (a × b) / (c × d)  → líneas por hora por pickeador actual
+          var lph_persona = (a * b) / (c * d);
+          // horas_req = e / l/h       → horas totales para procesar los SKUs del día
+          var horas_req   = e / lph_persona;
+          // personas = ceil(horas_req / d) + 1 supervisor
+          var personas    = Math.ceil(horas_req / d) + 1;
+          personas = Math.max(1, personas);
+          var ahorro = Math.max(0, c - personas);
+          var ahorro_pct = c > 0 ? Math.round((ahorro / c) * 100) : 0;
+          var upm = f > 0 && personas > 0 ? Math.round(f / personas) : 0;
+
+          // Fill cards
+          document.getElementById('res-personas').textContent  = personas;
+          document.getElementById('res-actuales').textContent  = c;
+          document.getElementById('res-ahorro-pct').textContent = ahorro_pct + '%';
+          document.getElementById('res-ahorro-bar').style.width = Math.min(ahorro_pct, 100) + '%';
+
+          var lphRound = Math.round(lph_persona);
+          document.getElementById('res-lph').textContent = fmtNum(lphRound);
+          var bench = document.getElementById('res-lph-bench');
+          if (lph_persona < 40) {
+            bench.textContent = 'Estás por debajo del benchmark (40–80 l/h). PTL puede acelerar significativamente tu operación.';
+            bench.className = 'mt-3 text-xs text-amber-600 font-medium';
+          } else if (lph_persona <= 80) {
+            bench.textContent = 'Estás dentro del benchmark del sector (40–80 l/h). PTL te ayuda a alcanzar el techo de ese rango.';
+            bench.className = 'mt-3 text-xs text-emerald-600 font-medium';
+          } else {
+            bench.textContent = 'Alta productividad actual. PTL mantiene ese ritmo con menos esfuerzo y más precisión.';
+            bench.className = 'mt-3 text-xs text-blue-600 font-medium';
+          }
+
+          document.getElementById('res-upm').textContent = fmtNum(upm);
+
+          // Show results, hide empty placeholder
+          empty.style.display = 'none';
+          results.classList.remove('hidden');
+          results.classList.add('flex');
+
+          // Re-render lucide icons inside results
+          if (window.lucide) { lucide.createIcons(); }
+        });
+      })();
+      // ── END CALCULADORA PTL ──────────────────────────────────────────
+
     });
   </script>
 </body>
