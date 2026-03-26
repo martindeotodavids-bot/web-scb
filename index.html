@@ -1491,13 +1491,13 @@ index.html
 
         <!-- Formulario de contacto -->
         <div class="rounded-2xl border border-slate-800 bg-slate-950/80 p-6 sm:p-7 shadow-xl shadow-black/40">
-          <form class="space-y-4">
+          <form id="contact-form" action="https://formspree.io/f/xzdkzezq" method="POST" class="space-y-4">
             <div class="grid gap-4 sm:grid-cols-2">
               <div>
                 <label for="nombre" class="text-xs font-medium text-slate-200 mb-1.5 block">
                   Nombre completo
                 </label>
-                <input id="nombre" type="text"
+                <input id="nombre" name="nombre" type="text"
                        class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
                        placeholder="Ej: María Pérez" />
               </div>
@@ -1505,7 +1505,7 @@ index.html
                 <label for="cargo" class="text-xs font-medium text-slate-200 mb-1.5 block">
                   Cargo
                 </label>
-                <input id="cargo" type="text"
+                <input id="cargo" name="cargo" type="text"
                        class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
                        placeholder="Ej: Gerente de Logística" />
               </div>
@@ -1516,7 +1516,7 @@ index.html
                 <label for="empresa" class="text-xs font-medium text-slate-200 mb-1.5 block">
                   Empresa
                 </label>
-                <input id="empresa" type="text"
+                <input id="empresa" name="empresa" type="text"
                        class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
                        placeholder="Ej: Empresa XYZ" />
               </div>
@@ -1524,7 +1524,7 @@ index.html
                 <label for="telefono" class="text-xs font-medium text-slate-200 mb-1.5 block">
                   Teléfono
                 </label>
-                <input id="telefono" type="tel"
+                <input id="telefono" name="telefono" type="tel"
                        class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
                        placeholder="Ej: +56 9 1234 5678" />
               </div>
@@ -1534,7 +1534,7 @@ index.html
               <label for="email" class="text-xs font-medium text-slate-200 mb-1.5 block">
                 Email corporativo
               </label>
-              <input id="email" type="email"
+              <input id="email" name="email" type="email"
                      class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
                      placeholder="Ej: nombre@empresa.cl" />
             </div>
@@ -1543,10 +1543,16 @@ index.html
               <label for="desafio" class="text-xs font-medium text-slate-200 mb-1.5 block">
                 Desafío logístico actual
               </label>
-              <textarea id="desafio" rows="4"
+              <textarea id="desafio" name="desafio" rows="4"
                         class="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 shadow-sm focus:border-techOrange focus:ring-2 focus:ring-techOrange/40 outline-none"
                         placeholder="Cuéntanos brevemente tus brechas de productividad, problemas de exactitud, uso de espacio u otros desafíos."></textarea>
             </div>
+
+            <!-- Datos calculadora (se rellenan automáticamente si el usuario usó la calculadora) -->
+            <input type="hidden" name="calc_personas"  id="hidden-personas">
+            <input type="hidden" name="calc_ahorro_pct" id="hidden-ahorro">
+            <input type="hidden" name="calc_lph"       id="hidden-lph">
+            <input type="hidden" name="calc_upm"       id="hidden-upm">
 
             <button type="submit"
                     class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-techOrange px-4 py-2.5 text-sm font-semibold text-navy shadow-lg shadow-techOrange/40 transition hover:bg-orange-500">
@@ -1940,6 +1946,12 @@ index.html
 
           document.getElementById('res-upm').textContent = fmtNum(upm);
 
+          // Puente: pasar resultados al formulario de contacto
+          document.getElementById('hidden-personas').value = personas + ' personas';
+          document.getElementById('hidden-ahorro').value   = ahorro_pct + '%';
+          document.getElementById('hidden-lph').value      = lphRound + ' líneas/hora';
+          document.getElementById('hidden-upm').value      = fmtNum(upm) + ' unidades/persona/mes';
+
           // Show results, hide empty placeholder
           empty.style.display = 'none';
           results.classList.remove('hidden');
@@ -1950,6 +1962,32 @@ index.html
         });
       })();
       // ── END CALCULADORA PTL ──────────────────────────────────────────
+
+      // ── Feedback formulario de contacto ──────────────────────────────
+      (function () {
+        var form = document.getElementById('contact-form');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var data = new FormData(form);
+          fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          })
+          .then(function (res) {
+            if (res.ok) {
+              alert('¡Mensaje enviado con éxito! Miguel se pondrá en contacto contigo en máximo 1 día hábil.');
+              form.reset();
+            } else {
+              alert('Hubo un error al enviar el formulario. Por favor intenta nuevamente o escríbenos directamente a contacto@scblogistica.cl');
+            }
+          })
+          .catch(function () {
+            alert('No se pudo conectar. Verifica tu conexión e intenta nuevamente.');
+          });
+        });
+      })();
 
     });
   </script>
