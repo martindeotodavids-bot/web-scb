@@ -2007,6 +2007,11 @@ index.html
             if (res.ok) {
               alert('¡Mensaje enviado con éxito! Miguel se pondrá en contacto contigo en máximo 1 día hábil.');
               form.reset();
+              // form.reset() no limpia hidden inputs — vaciarlos manualmente
+              ['hidden-inp-a','hidden-inp-b','hidden-inp-c','hidden-inp-d','hidden-inp-e','hidden-inp-f',
+               'hidden-personas','hidden-ahorro','hidden-lph','hidden-upm'].forEach(function(id){
+                var el = document.getElementById(id); if (el) el.value = '';
+              });
             } else {
               alert('Hubo un error al enviar el formulario. Por favor intenta nuevamente o escríbenos directamente a contacto@scblogistica.cl');
             }
