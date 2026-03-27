@@ -1559,19 +1559,8 @@ index.html
                         placeholder="Cuéntanos brevemente tus brechas de productividad, problemas de exactitud, uso de espacio u otros desafíos."></textarea>
             </div>
 
-            <!-- Datos calculadora (se rellenan automáticamente si el usuario usó la calculadora) -->
-            <!-- Inputs del usuario -->
-            <input type="hidden" name="calc_pedidos_dia"    id="hidden-inp-a">
-            <input type="hidden" name="calc_lineas_pedido"  id="hidden-inp-b">
-            <input type="hidden" name="calc_pickeadores"    id="hidden-inp-c">
-            <input type="hidden" name="calc_horas_dia"      id="hidden-inp-d">
-            <input type="hidden" name="calc_skus_dia"       id="hidden-inp-e">
-            <input type="hidden" name="calc_unidades_mes"   id="hidden-inp-f">
-            <!-- Outputs calculados -->
-            <input type="hidden" name="calc_personas"       id="hidden-personas">
-            <input type="hidden" name="calc_ahorro_pct"     id="hidden-ahorro">
-            <input type="hidden" name="calc_lph"            id="hidden-lph">
-            <input type="hidden" name="calc_upm_actual"     id="hidden-upm">
+            <!-- Datos calculadora consolidados (se rellenan automáticamente si el usuario usó la calculadora) -->
+            <input type="hidden" name="calculadora_datos" id="hidden-calc-json">
 
             <!-- Honeypot: oculto para humanos, visible para bots -->
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
@@ -1594,7 +1583,7 @@ index.html
             </div>
             <div>
               <p class="text-base font-semibold text-emerald-300">¡Mensaje enviado!</p>
-              <p class="mt-1 text-sm text-slate-400">Miguel se pondrá en contacto contigo vía mail o Whatsapp.</p>
+              <p class="mt-1 text-sm text-slate-400">Miguel se pondrá en contacto contigo vía mail o WhatsApp.</p>
             </div>
             <button id="contact-reset-btn"
                     class="mt-2 text-xs text-slate-500 underline underline-offset-2 hover:text-slate-300 transition">
@@ -1984,19 +1973,20 @@ index.html
 
           document.getElementById('res-upm-actual').textContent = fmtNum(upm_actual);
 
-          // Puente: pasar resultados al formulario de contacto
-          // Inputs
-          document.getElementById('hidden-inp-a').value = a + ' pedidos/día';
-          document.getElementById('hidden-inp-b').value = b + ' líneas/pedido';
-          document.getElementById('hidden-inp-c').value = c + ' pickeadores';
-          document.getElementById('hidden-inp-d').value = d + ' horas/día';
-          document.getElementById('hidden-inp-e').value = e + ' SKUs/día';
-          document.getElementById('hidden-inp-f').value = fmtNum(f) + ' unidades/mes';
-          // Outputs
-          document.getElementById('hidden-personas').value = personas + ' personas';
-          document.getElementById('hidden-ahorro').value   = ahorro_pct + '%';
-          document.getElementById('hidden-lph').value      = lphRound + ' líneas/hora/persona';
-          document.getElementById('hidden-upm').value      = fmtNum(upm_actual) + ' unidades/persona/mes (equipo actual)';
+          // Puente: consolidar todos los datos en un JSON único
+          var calcData = {
+            pedidos_dia: a,
+            lineas_pedido: b,
+            pickeadores: c,
+            horas_dia: d,
+            skus_dia: e,
+            unidades_mes: f,
+            personas_optimas: personas,
+            ahorro_porcentaje: ahorro_pct,
+            lineas_hora_persona: lphRound,
+            unidades_persona_mes: upm_actual
+          };
+          document.getElementById('hidden-calc-json').value = JSON.stringify(calcData);
 
           // Show results, hide empty placeholder
           empty.style.display = 'none';
@@ -2019,13 +2009,9 @@ index.html
         var resetBtn   = document.getElementById('contact-reset-btn');
         if (!form) return;
 
-        var hiddenCalcIds = ['hidden-inp-a','hidden-inp-b','hidden-inp-c','hidden-inp-d','hidden-inp-e','hidden-inp-f',
-                             'hidden-personas','hidden-ahorro','hidden-lph','hidden-upm'];
-
         function clearHiddenCalc() {
-          hiddenCalcIds.forEach(function(id){
-            var el = document.getElementById(id); if (el) el.value = '';
-          });
+          var calcJsonEl = document.getElementById('hidden-calc-json');
+          if (calcJsonEl) calcJsonEl.value = '';
         }
 
         function setLoading(on) {
@@ -2038,10 +2024,16 @@ index.html
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           setLoading(true);
+          // Construir cadena URL-encoded
+          var formData = new FormData(form);
+          var params = new URLSearchParams(formData).toString();
           fetch(form.action, {
             method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
+            body: params,
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
           })
           .then(function (res) {
             setLoading(false);
