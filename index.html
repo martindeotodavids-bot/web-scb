@@ -1573,16 +1573,34 @@ index.html
             <input type="hidden" name="calc_lph"            id="hidden-lph">
             <input type="hidden" name="calc_upm_actual"     id="hidden-upm">
 
-            <button type="submit"
-                    class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-techOrange px-4 py-2.5 text-sm font-semibold text-navy shadow-lg shadow-techOrange/40 transition hover:bg-orange-500">
-              <span>Solicitar Diagnóstico Gratuito</span>
-              <i data-lucide="send" class="h-4 w-4"></i>
+            <!-- Honeypot: oculto para humanos, visible para bots -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+            <button id="contact-submit" type="submit"
+                    class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-techOrange px-4 py-2.5 text-sm font-semibold text-navy shadow-lg shadow-techOrange/40 transition hover:bg-orange-500 disabled:opacity-60 disabled:cursor-not-allowed">
+              <span id="contact-btn-label">Solicitar Diagnóstico Gratuito</span>
+              <i id="contact-btn-icon" data-lucide="send" class="h-4 w-4"></i>
             </button>
             <p class="text-[11px] text-slate-500">
               Responderemos en máximo 1 día hábil. Tu información será tratada
               de forma confidencial.
             </p>
           </form>
+
+          <!-- Panel de éxito (oculto por defecto) -->
+          <div id="contact-success" class="hidden flex-col items-center justify-center gap-4 rounded-2xl border border-emerald-500/30 bg-emerald-950/40 px-6 py-10 text-center">
+            <div class="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/20">
+              <i data-lucide="check-circle-2" class="h-8 w-8 text-emerald-400"></i>
+            </div>
+            <div>
+              <p class="text-base font-semibold text-emerald-300">¡Mensaje enviado!</p>
+              <p class="mt-1 text-sm text-slate-400">Miguel se pondrá en contacto contigo vía mail o Whatsapp.</p>
+            </div>
+            <button id="contact-reset-btn"
+                    class="mt-2 text-xs text-slate-500 underline underline-offset-2 hover:text-slate-300 transition">
+              Enviar otro mensaje
+            </button>
+          </div>
         </div>
       </div>
 
@@ -1993,33 +2011,66 @@ index.html
 
       // ── Feedback formulario de contacto ──────────────────────────────
       (function () {
-        var form = document.getElementById('contact-form');
+        var form       = document.getElementById('contact-form');
+        var successDiv = document.getElementById('contact-success');
+        var submitBtn  = document.getElementById('contact-submit');
+        var btnLabel   = document.getElementById('contact-btn-label');
+        var btnIcon    = document.getElementById('contact-btn-icon');
+        var resetBtn   = document.getElementById('contact-reset-btn');
         if (!form) return;
+
+        var hiddenCalcIds = ['hidden-inp-a','hidden-inp-b','hidden-inp-c','hidden-inp-d','hidden-inp-e','hidden-inp-f',
+                             'hidden-personas','hidden-ahorro','hidden-lph','hidden-upm'];
+
+        function clearHiddenCalc() {
+          hiddenCalcIds.forEach(function(id){
+            var el = document.getElementById(id); if (el) el.value = '';
+          });
+        }
+
+        function setLoading(on) {
+          submitBtn.disabled = on;
+          btnLabel.textContent = on ? 'Enviando…' : 'Solicitar Diagnóstico Gratuito';
+          btnIcon.setAttribute('data-lucide', on ? 'loader-2' : 'send');
+          if (window.lucide) lucide.createIcons();
+        }
+
         form.addEventListener('submit', function (e) {
           e.preventDefault();
-          var data = new FormData(form);
+          setLoading(true);
           fetch(form.action, {
             method: 'POST',
-            body: data,
+            body: new FormData(form),
             headers: { 'Accept': 'application/json' }
           })
           .then(function (res) {
+            setLoading(false);
             if (res.ok) {
-              alert('¡Mensaje enviado con éxito! Miguel se pondrá en contacto contigo en máximo 1 día hábil.');
               form.reset();
-              // form.reset() no limpia hidden inputs — vaciarlos manualmente
-              ['hidden-inp-a','hidden-inp-b','hidden-inp-c','hidden-inp-d','hidden-inp-e','hidden-inp-f',
-               'hidden-personas','hidden-ahorro','hidden-lph','hidden-upm'].forEach(function(id){
-                var el = document.getElementById(id); if (el) el.value = '';
-              });
+              clearHiddenCalc();
+              // Mostrar panel de éxito, ocultar form
+              form.classList.add('hidden');
+              successDiv.classList.remove('hidden');
+              successDiv.classList.add('flex');
+              if (window.lucide) lucide.createIcons();
             } else {
-              alert('Hubo un error al enviar el formulario. Por favor intenta nuevamente o escríbenos directamente a contacto@scblogistica.cl');
+              alert('Hubo un error al enviar. Por favor intenta nuevamente o escríbenos a contacto@scblogistica.cl');
             }
           })
           .catch(function () {
+            setLoading(false);
             alert('No se pudo conectar. Verifica tu conexión e intenta nuevamente.');
           });
         });
+
+        // Botón "Enviar otro mensaje"
+        if (resetBtn) {
+          resetBtn.addEventListener('click', function () {
+            successDiv.classList.add('hidden');
+            successDiv.classList.remove('flex');
+            form.classList.remove('hidden');
+          });
+        }
       })();
 
     });
