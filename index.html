@@ -889,120 +889,127 @@ index.html
     <!-- EQUIPO + SOCIAL PROOF -->
     <section id="nosotros" class="bg-slate-950/60 border-t border-slate-900">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <!-- Encabezado + flechas carrusel equipo -->
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 class="text-2xl sm:text-3xl font-semibold text-slate-50">
               Equipo que viene de la operación
             </h2>
             <p class="mt-2 max-w-2xl text-sm sm:text-base text-slate-300">
-              Somos un equipo de profesionales que venimos de la operación. Nuestro proposito, es aumentar la rentabilidad del negocio  
-              a nuestros socios comerciales por la via de rediseñar y tecnificar sus procesos. Queremos ser un parter tecnológico para
-              ayudar a nuestros clientes en decisiones estratégicas. Equivocarse cuesta caro.  Tenemos mucha experiencia diseñando y operando Centros de 
+              Somos un equipo de profesionales que venimos de la operación. Nuestro propósito es aumentar la rentabilidad del negocio
+              de nuestros socios comerciales rediseñando y tecnificando sus procesos. Queremos ser un partner tecnológico para
+              ayudar a nuestros clientes en decisiones estratégicas. Equivocarse cuesta caro. Tenemos mucha experiencia diseñando y operando Centros de
               Distribución en Chile y Latinoamérica.
             </p>
           </div>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <button id="equipo-prev"
+                    class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 hover:border-techOrange/70 hover:text-techOrange transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                    aria-label="Anterior">
+              <i data-lucide="chevron-left" class="h-5 w-5"></i>
+            </button>
+            <span id="equipo-counter" class="text-xs text-slate-400 tabular-nums w-10 text-center select-none">1 / 2</span>
+            <button id="equipo-next"
+                    class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 bg-slate-900/60 text-slate-300 hover:border-techOrange/70 hover:text-techOrange transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                    aria-label="Siguiente">
+              <i data-lucide="chevron-right" class="h-5 w-5"></i>
+            </button>
+          </div>
         </div>
 
-        <!-- Tarjetas de equipo -->
-        <div class="mt-8 grid gap-6 md:grid-cols-3">
-          <!-- Miguel -->
-          <article class="reveal rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20 flex flex-col">
-            <div class="flex items-center gap-3">
-              <div class="h-12 w-12 rounded-full overflow-hidden border border-techOrange/40 bg-slate-900/80 flex-shrink-0">
-                <img
-                  src="fotos/Miguel%20De%20Oto.png"
-                  alt="Foto de Miguel De Oto"
-                  class="h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-sm font-semibold text-slate-50">Miguel De Oto</h3>
-                <p class="text-xs text-slate-400">Socio Director · Diseño de Centros</p>
-              </div>
-            </div>
-            <p class="mt-3 text-sm text-slate-300">
-              Especialista en diseño integral de centros de distribución, 
-              reingeniería de procesos y tecnificación.
-            </p>
-            <p class="mt-3 text-xs text-slate-400">
-              Ha liderado proyectos para empresas de retail, consumo masivo y B2B
-              industriales, con foco en rentabilidad de las empresas.
-            </p>
-            <a href="https://www.linkedin.com/in/miguel-de-oto-0a64727/"
-               target="_blank" rel="noopener noreferrer"
-               class="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
-              <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.103v1.561h.044c.432-.817 1.49-1.678 3.067-1.678 3.279 0 3.883 2.158 3.883 4.963v6.606zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.553 13.019H3.783V9h3.107v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              <span>Ver perfil en LinkedIn</span>
-            </a>
-          </article>
+        <!-- Carrusel equipo -->
+        <div class="mt-10 overflow-hidden py-3 -my-3" id="equipo-viewport">
+          <div class="flex" id="equipo-track">
 
-          <!-- Juan Carlos -->
-          <article class="reveal rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20 flex flex-col" data-delay="1">
-            <div class="flex items-center gap-3">
-              <div class="h-12 w-12 rounded-full overflow-hidden border border-techOrange/40 bg-slate-900/80 flex-shrink-0">
-                <img
-                  src="fotos/Juan%20Carlos%20Saez.png"
-                  alt="Foto de Juan Carlos Saez"
-                  class="h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-sm font-semibold text-slate-50">Juan Carlos Saez</h3>
-                <p class="text-xs text-slate-400">Socio · Operaciones & KPIs</p>
+            <!-- Slide 1: Miguel + Juan Carlos -->
+            <div class="w-full flex-shrink-0">
+              <div class="grid gap-6 sm:grid-cols-2">
+                <!-- Miguel -->
+                <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20 flex flex-col">
+                  <div class="flex items-center gap-3">
+                    <div class="h-12 w-12 rounded-full overflow-hidden border border-techOrange/40 bg-slate-900/80 flex-shrink-0">
+                      <img src="fotos/Miguel%20De%20Oto.png" alt="Foto de Miguel De Oto" class="h-full w-full object-cover" loading="lazy" decoding="async"/>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h3 class="text-sm font-semibold text-slate-50">Miguel De Oto</h3>
+                      <p class="text-xs text-slate-400">Socio Director · Diseño de Centros</p>
+                    </div>
+                  </div>
+                  <p class="mt-3 text-sm text-slate-300">Especialista en diseño integral de centros de distribución, reingeniería de procesos y tecnificación.</p>
+                  <p class="mt-3 text-xs text-slate-400">Ha liderado proyectos para empresas de retail, consumo masivo y B2B industriales, con foco en rentabilidad de las empresas.</p>
+                  <a href="https://www.linkedin.com/in/miguel-de-oto-0a64727/" target="_blank" rel="noopener noreferrer"
+                     class="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
+                    <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.103v1.561h.044c.432-.817 1.49-1.678 3.067-1.678 3.279 0 3.883 2.158 3.883 4.963v6.606zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.553 13.019H3.783V9h3.107v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    <span>Ver perfil en LinkedIn</span>
+                  </a>
+                </article>
+                <!-- Juan Carlos -->
+                <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20 flex flex-col">
+                  <div class="flex items-center gap-3">
+                    <div class="h-12 w-12 rounded-full overflow-hidden border border-techOrange/40 bg-slate-900/80 flex-shrink-0">
+                      <img src="fotos/Juan%20Carlos%20Saez.png" alt="Foto de Juan Carlos Saez" class="h-full w-full object-cover" loading="lazy" decoding="async"/>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h3 class="text-sm font-semibold text-slate-50">Juan Carlos Saez</h3>
+                      <p class="text-xs text-slate-400">Socio · Operaciones & KPIs</p>
+                    </div>
+                  </div>
+                  <p class="mt-3 text-sm text-slate-300">Experto en gestión de operaciones, productividad y modelos de gobernanza de indicadores para logística de alto desempeño.</p>
+                  <p class="mt-3 text-xs text-slate-400">Acompaña en terreno la implementación y estabilización de nuevas formas de trabajo con supervisores y jefaturas.</p>
+                  <a href="https://www.linkedin.com/in/juan-carlos-saez-salazar-9b054525/" target="_blank" rel="noopener noreferrer"
+                     class="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
+                    <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.103v1.561h.044c.432-.817 1.49-1.678 3.067-1.678 3.279 0 3.883 2.158 3.883 4.963v6.606zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.553 13.019H3.783V9h3.107v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    <span>Ver perfil en LinkedIn</span>
+                  </a>
+                </article>
               </div>
             </div>
-            <p class="mt-3 text-sm text-slate-300">
-              Experto en gestión de operaciones, productividad y modelos de
-              gobernanza de indicadores para logística de alto desempeño.
-            </p>
-            <p class="mt-3 text-xs text-slate-400">
-              Acompaña en terreno la implementación y estabilización de nuevas
-              formas de trabajo con supervisores y jefaturas.
-            </p>
-            <a href="https://www.linkedin.com/in/juan-carlos-saez-salazar-9b054525/"
-               target="_blank" rel="noopener noreferrer"
-               class="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
-              <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.103v1.561h.044c.432-.817 1.49-1.678 3.067-1.678 3.279 0 3.883 2.158 3.883 4.963v6.606zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.553 13.019H3.783V9h3.107v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              <span>Ver perfil en LinkedIn</span>
-            </a>
-          </article>
 
-          <!-- Ronald -->
-          <article class="reveal rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20 flex flex-col" data-delay="2">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-techOrange/15 border border-techOrange/40">
-                <i data-lucide="user-cog" class="h-5 w-5 text-techOrange"></i>
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-sm font-semibold text-slate-50">Ronald Martinez</h3>
-                <p class="text-xs text-slate-400">Socio · Tecnología & Integración</p>
+            <!-- Slide 2: Ronald + Claudio -->
+            <div class="w-full flex-shrink-0">
+              <div class="grid gap-6 sm:grid-cols-2">
+                <!-- Ronald -->
+                <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20 flex flex-col">
+                  <div class="flex items-center gap-3">
+                    <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-techOrange/15 border border-techOrange/40">
+                      <i data-lucide="user-cog" class="h-5 w-5 text-techOrange"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h3 class="text-sm font-semibold text-slate-50">Ronald Martinez</h3>
+                      <p class="text-xs text-slate-400">Socio · Tecnología & Integración</p>
+                    </div>
+                  </div>
+                  <p class="mt-3 text-sm text-slate-300">Responsable de la arquitectura tecnológica, integración con WMS/ERP y despliegue de soluciones Put-to-Light y Pick-to-Light.</p>
+                  <p class="mt-3 text-xs text-slate-400">Combina experiencia técnica con conocimiento profundo de operación en piso para soluciones realmente utilizables.</p>
+                  <a href="https://www.linkedin.com/in/ronald-martinez/" target="_blank" rel="noopener noreferrer"
+                     class="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
+                    <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.103v1.561h.044c.432-.817 1.49-1.678 3.067-1.678 3.279 0 3.883 2.158 3.883 4.963v6.606zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.553 13.019H3.783V9h3.107v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    <span>Ver perfil en LinkedIn</span>
+                  </a>
+                </article>
+                <!-- Claudio -->
+                <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-md shadow-black/40 transition hover:-translate-y-1 hover:border-techOrange/70 hover:shadow-techOrange/20 flex flex-col">
+                  <div class="flex items-center gap-3">
+                    <div class="h-12 w-12 rounded-full overflow-hidden border border-techOrange/40 bg-slate-900/80 flex-shrink-0">
+                      <img src="fotos/Claudio%20Parra.png" alt="Foto de Claudio Parra" class="h-full w-full object-cover" loading="lazy" decoding="async"/>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <h3 class="text-sm font-semibold text-slate-50">Claudio Parra</h3>
+                      <p class="text-xs text-slate-400">Especialista · Integración IT & Logística</p>
+                    </div>
+                  </div>
+                  <p class="mt-3 text-sm text-slate-300">Experto en integración de sistemas, administración de redes y soporte técnico para proyectos de logística de alto desempeño.</p>
+                  <p class="mt-3 text-xs text-slate-400">Lidera la instalación, configuración y mantenimiento de infraestructura tecnológica en centros de distribución, garantizando operación confiable.</p>
+                  <a href="http://www.linkedin.com/in/claudio-humberto-parra-varas-aa705629" target="_blank" rel="noopener noreferrer"
+                     class="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
+                    <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.103v1.561h.044c.432-.817 1.49-1.678 3.067-1.678 3.279 0 3.883 2.158 3.883 4.963v6.606zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.553 13.019H3.783V9h3.107v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    <span>Ver perfil en LinkedIn</span>
+                  </a>
+                </article>
               </div>
             </div>
-            <p class="mt-3 text-sm text-slate-300">
-              Responsable de la arquitectura tecnológica, integración con WMS/ERP
-              y despliegue de soluciones Put-to-Light y Pick-to-Light.
-            </p>
-            <p class="mt-3 text-xs text-slate-400">
-              Combina experiencia técnica con conocimiento profundo de operación
-              en piso para soluciones realmente utilizables.
-            </p>
-            <a href="https://www.linkedin.com/in/ronald-martinez/"
-               target="_blank" rel="noopener noreferrer"
-               class="mt-4 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition-colors">
-              <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.985V9h3.103v1.561h.044c.432-.817 1.49-1.678 3.067-1.678 3.279 0 3.883 2.158 3.883 4.963v6.606zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zm1.553 13.019H3.783V9h3.107v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              <span>Ver perfil en LinkedIn</span>
-            </a>
-          </article>
+
+          </div>
         </div>
 
         <!-- Social proof -->
@@ -1696,6 +1703,40 @@ index.html
           revealObserver.observe(el);
         });
       })();
+
+      // ── Carrusel Equipo ───────────────────────────────────────
+      (function () {
+        var track    = document.getElementById('equipo-track');
+        var viewport = document.getElementById('equipo-viewport');
+        var prevBtn  = document.getElementById('equipo-prev');
+        var nextBtn  = document.getElementById('equipo-next');
+        var counter  = document.getElementById('equipo-counter');
+        var total    = 2;
+        var current  = 0;
+
+        if (!track || !prevBtn || !nextBtn) return;
+
+        track.style.transition = 'transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+        function goTo(idx) {
+          current = Math.max(0, Math.min(idx, total - 1));
+          track.style.transform = 'translateX(-' + current * 100 + '%)';
+          counter.textContent = (current + 1) + ' / ' + total;
+          prevBtn.disabled = current === 0;
+          nextBtn.disabled = current === total - 1;
+        }
+
+        prevBtn.addEventListener('click', function () { goTo(current - 1); });
+        nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+        viewport.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft')  goTo(current - 1);
+          if (e.key === 'ArrowRight') goTo(current + 1);
+        });
+
+        goTo(0);
+      })();
+      // ── END Carrusel Equipo ───────────────────────────────────
 
       // ── Carrusel Casos de Éxito ───────────────────────────────
       (function () {
