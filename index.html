@@ -2063,16 +2063,10 @@
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           setLoading(true);
-          // Construir cadena URL-encoded
-          var formData = new FormData(form);
-          var params = new URLSearchParams(formData).toString();
           fetch(form.action, {
             method: 'POST',
-            body: params,
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/x-www-form-urlencoded'
-            }
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
           })
           .then(function (res) {
             setLoading(false);
