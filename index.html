@@ -59,7 +59,7 @@
 
   <style>
     /* Suaviza el scroll entre secciones */
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
     /* ── Scroll reveal ──────────────────────────────────────── */
     .reveal {
@@ -677,9 +677,33 @@
           </div>
 
           <!-- Estado vacío (visible antes de calcular, en desktop ocupa el espacio derecho) -->
-          <div id="ptl-empty" class="hidden lg:flex flex-col items-center justify-center gap-4 rounded-2xl border-2 border-dashed border-slate-200 p-10 text-center text-slate-400">
-            <i data-lucide="bar-chart-2" class="h-10 w-10 opacity-40"></i>
-            <p class="text-sm">Completa los datos y presiona<br/><strong class="text-slate-600">Calcular potencial</strong> para ver tu proyección.</p>
+          <div id="ptl-empty" class="hidden lg:flex flex-col gap-3 self-stretch">
+
+            <!-- Placeholder compacto -->
+            <div class="flex items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-slate-200 px-6 py-4 text-slate-400">
+              <i data-lucide="bar-chart-2" class="h-7 w-7 opacity-40 flex-shrink-0"></i>
+              <p class="text-sm text-left">Completa los datos y presiona <strong class="text-slate-600">Calcular potencial</strong> para ver tu proyección.</p>
+            </div>
+
+            <!-- Card de supuestos y beneficios (crece para llenar el espacio restante) -->
+            <div class="flex-1 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-xs text-slate-600 space-y-3">
+              <div>
+                <p class="font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Supuestos</p>
+                <ul class="space-y-1.5">
+                  <li class="flex gap-2"><span class="text-techOrange mt-0.5 flex-shrink-0">•</span><span>El cálculo corresponde a pasar de picking por orden a picking consolidado con estaciones PTL.</span></li>
+                  <li class="flex gap-2"><span class="text-techOrange mt-0.5 flex-shrink-0">•</span><span>Para el picking consolidado se mantiene la productividad actual de líneas por HH, lo que subestima el mejoramiento del proceso.</span></li>
+                </ul>
+              </div>
+              <div class="border-t border-slate-200 pt-3">
+                <p class="font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Beneficios</p>
+                <ul class="space-y-1.5">
+                  <li class="flex gap-2"><span class="text-techOrange mt-0.5 flex-shrink-0">•</span><span>El ciclo del proceso se reduce dado que picking y sorting se realizan al mismo tiempo: tareas simultáneas.</span></li>
+                  <li class="flex gap-2"><span class="text-techOrange mt-0.5 flex-shrink-0">•</span><span>Del total de personas estimadas, una queda fija en la estación PTL y el resto se dedican al picking consolidado.</span></li>
+                  <li class="flex gap-2"><span class="text-techOrange mt-0.5 flex-shrink-0">•</span><span>Los rendimientos varían según el layout, tipo de artículos y profundidad del pedido.</span></li>
+                </ul>
+              </div>
+            </div>
+
           </div>
 
         </div>
